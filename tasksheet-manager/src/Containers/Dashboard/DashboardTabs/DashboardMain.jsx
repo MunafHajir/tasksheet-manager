@@ -9,19 +9,39 @@ import { createUseStyles } from "react-jss";
 
 const useStyle = createUseStyles({
   tabs: {
-    // display: "flex",
-    // alignItems: "center",
-    position:"relative"
+    position: "relative",
   },
-  absolute:{
-    position:"absolute",
-    right:"0vw"
-  }
+  absolute: {
+    position: "absolute",
+    right: "0vw",
+    color: "#0463D1",
+    width: "15vw !important",
+  },
+  font: {
+    fontFamily: "Plus Jakarta Sans",
+    textTransform: "none",
+    fontWeight: "600",
+    fontSize: "0.9375vw",
+    padding: "16px 8px",
+    width: "10vw",
+  },
+  content: {
+    width: "90%",
+    backgroundColor: "white",
+    padding: "0px 70px",
+    margin: "0 auto",
+  },
+  customTabPanel: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  
 });
 
 function CustomTabPanel(props) {
+  const classes = useStyle();
   const { children, value, index, ...other } = props;
-
+  
   return (
     <div
       role="tabpanel"
@@ -29,9 +49,10 @@ function CustomTabPanel(props) {
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
-    >
+      className={classes.CustomTabPanel}
+      >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 3 , minHeight:"90vh" }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -62,38 +83,50 @@ const DashboardMain = () => {
   return (
     <>
       <CssBaseline />
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: "100%", backgroundColor: "#F7FBFF" }}>
         <Box
-          sx={{ borderBottom: 1, borderColor: "divider" }}
+          sx={{
+            borderBottom: 1,
+            borderColor: "divider",
+            backgroundColor: "#FFF",
+            padding: "0px 72px",
+          }}
           className={classes.tabs}
         >
-          <Tabs
-          sx={{display:"flex"}}
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-          >
-            <Tab label="Dashboard" {...a11yProps(0)} />
-            <Tab label="User List" {...a11yProps(1)} />
-            <Tab label="Project List" {...a11yProps(2)} />
+          <Tabs sx={{ display: "flex" }} value={value} onChange={handleChange}>
+            <Tab className={classes.font} label="Dashboard" {...a11yProps(0)} />
+            <Tab className={classes.font} label="User list" {...a11yProps(1)} />
             <Tab
-            className={classes.absolute}
-              label="+Create New Project"
+              className={classes.font}
+              label="Project list"
+              {...a11yProps(2)}
+            />
+            <Tab
+              className={`${classes.absolute} ${classes.font}`}
+              label="+ Create New Project"
               {...a11yProps(3)}
             />
           </Tabs>
         </Box>
-        <CustomTabPanel value={value} index={0}>
-          Item One
+        <CustomTabPanel value={value} index={0} className={classes.flex}>
+          <Box className={classes.content}>
+            <Typography>Item One</Typography>
+          </Box>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
-          Item Two
+        <CustomTabPanel value={value} index={1} className={classes.flex}>
+          <Box className={classes.content}>
+            <Typography>Item Two</Typography>
+          </Box>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={2}>
-          Item Three
+        <CustomTabPanel value={value} index={2} className={classes.flex}>
+          <Box className={classes.content}>
+            <Typography>Item Three</Typography>
+          </Box>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={3}>
-          Item four
+        <CustomTabPanel value={value} index={3} className={classes.flex}>
+          <Box className={classes.content}>
+            <Typography>Item four</Typography>
+          </Box>
         </CustomTabPanel>
       </Box>
     </>
