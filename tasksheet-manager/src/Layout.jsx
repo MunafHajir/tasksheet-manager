@@ -1,8 +1,9 @@
 import React from 'react'
 
-const Layout = () => {
+const Layout = ({Children}) => {
   return (
-    <div>Layout</div>
+    // <Nav />
+    {Children}
   )
 }
 
