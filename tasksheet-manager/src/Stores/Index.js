@@ -1,9 +1,17 @@
-import React from 'react'
+import { createStore } from "redux";
+import { persistStore , persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { RootReducer } from "Stores/Reducer/RootReducer";
 
-const Index = () => {
-  return (
-    <div>Index</div>
-  )
+const persistConfig = {
+  key:"root",
+  storage
 }
 
-export default Index
+const persistedReducer = persistReducer(persistConfig, RootReducer);
+
+export const store = createStore(
+  persistedReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+export const persistor = persistStore(store);
