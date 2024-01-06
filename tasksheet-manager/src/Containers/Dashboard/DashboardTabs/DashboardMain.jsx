@@ -6,6 +6,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { createUseStyles } from "react-jss";
+import DashboardProjectList from "../DashboardProjectList/DashboardProjectList";
 
 const useStyle = createUseStyles({
   tabs: {
@@ -28,20 +29,19 @@ const useStyle = createUseStyles({
   content: {
     width: "90%",
     backgroundColor: "white",
-    padding: "0px 70px",
-    margin: "0 auto",
+    padding: "20px 24px",
+    borderRadius:"0px 8px"
   },
   customTabPanel: {
     display: "flex",
     justifyContent: "center",
   },
-  
 });
 
 function CustomTabPanel(props) {
   const classes = useStyle();
   const { children, value, index, ...other } = props;
-  
+
   return (
     <div
       role="tabpanel"
@@ -50,10 +50,10 @@ function CustomTabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
       className={classes.CustomTabPanel}
-      >
+    >
       {value === index && (
-        <Box sx={{ p: 3 , minHeight:"90vh" }}>
-          <Typography>{children}</Typography>
+        <Box sx={{ p: 3, minHeight: "90vh" }}>
+          <Typography className={classes.customTabPanel}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -108,22 +108,22 @@ const DashboardMain = () => {
             />
           </Tabs>
         </Box>
-        <CustomTabPanel value={value} index={0} className={classes.flex}>
+        <CustomTabPanel value={value} index={0}>
           <Box className={classes.content}>
             <Typography>Item One</Typography>
           </Box>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={1} className={classes.flex}>
+        <CustomTabPanel value={value} index={1}>
           <Box className={classes.content}>
             <Typography>Item Two</Typography>
           </Box>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={2} className={classes.flex}>
+        <CustomTabPanel value={value} index={2}>
           <Box className={classes.content}>
-            <Typography>Item Three</Typography>
+            <DashboardProjectList />
           </Box>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={3} className={classes.flex}>
+        <CustomTabPanel value={value} index={3}>
           <Box className={classes.content}>
             <Typography>Item four</Typography>
           </Box>
