@@ -29,7 +29,7 @@ const useStyle = createUseStyles({
   content: {
     width: "90%",
     backgroundColor: "white",
-    padding: "20px 24px",
+    padding: "15px 24px",
     borderRadius:"0px 8px"
   },
   customTabPanel: {
