@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { createUseStyles } from "react-jss";
 import DashboardProjectList from "../DashboardProjectList/DashboardProjectList";
+import CreateNewProject from "Containers/CreateNewProject/CreateNewProject";
 
 const useStyle = createUseStyles({
   tabs: {
@@ -125,7 +126,7 @@ const DashboardMain = () => {
         </CustomTabPanel>
         <CustomTabPanel value={value} index={3}>
           <Box className={classes.content}>
-            <Typography>Item four</Typography>
+            <CreateNewProject/>
           </Box>
         </CustomTabPanel>
       </Box>
