@@ -90,7 +90,7 @@ const DashboardMain = (props) => {
             borderBottom: 1,
             borderColor: "divider",
             backgroundColor: "#FFF",
-            padding: "0px 72px",
+            padding: "0 7%",
           }}
           className={classes.tabs}
         >

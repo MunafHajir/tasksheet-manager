@@ -3,11 +3,11 @@ import { createUseStyles } from "react-jss";
 
 const useStyle = createUseStyles({
   Search: {
-    padding: "9px",
+    padding: "10px 12px",
     border: "0px",
     borderRadius: "8px",
     outline: "0px",
-    width: "16vw",
+    width: "100%",
   },
   Border: {
     borderRadius: "8px",
@@ -26,7 +26,7 @@ const useStyle = createUseStyles({
   },
 });
 
-const SearchBar = ({ placeholder, type, logic }) => {
+const SearchBar = ({ placeholder, type, logic ,styleSearch}) => {
   const [search, setSearch] = useState("");
   const classes = useStyle();
 
@@ -38,7 +38,7 @@ const SearchBar = ({ placeholder, type, logic }) => {
     <>
       <div className={classes.Border}>
         <input
-          className={`${classes.Search}`}
+          className={`${classes.Search} ${styleSearch}`}
           type={type}
           name="search"
           id="search"

@@ -1,9 +1,12 @@
+import { Button } from '@mui/material'
 import React from 'react'
 
-const Button = () => {
+const ButtonComp = ({variant,btntext, buttonStyle , logic }) => {
   return (
-    <div>Button</div>
+    <Button variant={variant} className={buttonStyle} onClick={logic}>
+      {btntext}
+    </Button>
   )
 }
 
-export default Button
+export default ButtonComp;

@@ -26,7 +26,7 @@ const useStyle = createUseStyles({
 
 const CardContainer = () => {
   const classes = useStyle();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const cardsData = [
     { title: "GetProject", users: "20 Users" },
@@ -36,34 +36,32 @@ const CardContainer = () => {
     { title: "DR Choksey", users: "20 Users" },
   ];
 
-  const cardsInRow = 4;
-  const rows = [];
-  for (let i = 0; i < cardsData.length; i += cardsInRow) {
-    rows.push(cardsData.slice(i, i + cardsInRow));
-  }
+  // const cardsInRow = 4;
+  // const rows = [];
+  // for (let i = 0; i < cardsData.length; i += cardsInRow) {
+  //   rows.push(cardsData.slice(i, i + cardsInRow));
+  // }
 
   const handleProjectDetail = (value) => {
-    navigate(`${value}`)
+    navigate(`${value}`);
   };
 
   return (
     <>
-      {rows.map((row, index) => (
-        <div className={classes.flex} key={index}>
-          {row.map((card, cardIndex) => (
-            <Card
-              key={cardIndex}
-              logic={handleProjectDetail}
-              classesT={classes.titleText}
-              variantT={"p"}
-              title={card.title}
-              variantU={"p"}
-              classesU={classes.usersText}
-              users={card.users}
-            />
-          ))}
-        </div>
-      ))}
+      <div className={classes.flex}>
+        {cardsData.map((card, cardIndex) => (
+          <Card
+            key={cardIndex}
+            logic={handleProjectDetail}
+            classesT={classes.titleText}
+            variantT={"p"}
+            title={card.title}
+            variantU={"p"}
+            classesU={classes.usersText}
+            users={card.users}
+          />
+        ))}
+      </div>
     </>
   );
 };

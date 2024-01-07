@@ -4,8 +4,8 @@ import { Box, CssBaseline } from "@mui/material";
 import Text from "Components/Common/Text";
 import InputLabelText from "Components/Common/InputLabelText";
 import Input from "Components/Common/Input";
-import NewProjectUserSelection from "Components/Common/NewProjectUserSelection";
-import NewProjectUserSelectionModel from "Components/Common/NewProjectUserSelectionModel";
+import NewProjectUserSelection from "Containers/CreateNewProject/NewProjectUserSelection";
+import NewProjectUserSelectionModel from "Containers/CreateNewProject/NewProjectUserSelectionModel";
 import Border from "Components/Common/Border";
 
 const useStyle = createUseStyles({
@@ -58,8 +58,8 @@ const useStyle = createUseStyles({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    // width: "704px",
-    // height:'595px',
+    width: "40%",
+    height:'550px',
     background: "#FFFFFF",
     border: " none",
     outline:'none',

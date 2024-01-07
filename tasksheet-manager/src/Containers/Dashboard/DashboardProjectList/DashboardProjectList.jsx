@@ -34,6 +34,9 @@ const useStyle = createUseStyles({
     borderRadius: "176px",
     padding: "4px 16px",
   },
+  searchWidth: {
+    width:'18vw'
+  }
 });
 
 const DashboardProjectList = () => {
@@ -53,7 +56,7 @@ const DashboardProjectList = () => {
             SupportingTitle={"12 Project"}
           />
         </div>
-        <SearchBar placeholder={"Search Project"} />
+        <SearchBar placeholder={"Search Project"} styleSearch={classes.searchWidth}/>
       </div>
 
       <Border />
