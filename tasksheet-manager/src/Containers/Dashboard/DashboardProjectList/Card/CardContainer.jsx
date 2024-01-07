@@ -1,6 +1,7 @@
 import Card from "Containers/Dashboard/DashboardProjectList/Card/Card";
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { useNavigate } from "react-router-dom";
 
 const useStyle = createUseStyles({
   titleText: {
@@ -20,21 +21,19 @@ const useStyle = createUseStyles({
     gap: "16px",
     flexWrap: "wrap",
     marginTop: "16px",
-    
   },
 });
 
 const CardContainer = () => {
   const classes = useStyle();
+  const navigate = useNavigate()
 
   const cardsData = [
     { title: "GetProject", users: "20 Users" },
-    { title: "GetProject", users: "20 Users" },
-    { title: "GetProject", users: "20 Users" },
-    { title: "GetProject", users: "20 Users" },
-    { title: "GetProject", users: "20 Users" },
-    { title: "GetProject", users: "20 Users" },
-    { title: "GetProject", users: "20 Users" },
+    { title: "Klaxon", users: "20 Users" },
+    { title: "Mandelics", users: "20 Users" },
+    { title: "FundsUp", users: "20 Users" },
+    { title: "DR Choksey", users: "20 Users" },
   ];
 
   const cardsInRow = 4;
@@ -43,6 +42,10 @@ const CardContainer = () => {
     rows.push(cardsData.slice(i, i + cardsInRow));
   }
 
+  const handleProjectDetail = (value) => {
+    navigate(`${value}`)
+  };
+
   return (
     <>
       {rows.map((row, index) => (
@@ -50,6 +53,7 @@ const CardContainer = () => {
           {row.map((card, cardIndex) => (
             <Card
               key={cardIndex}
+              logic={handleProjectDetail}
               classesT={classes.titleText}
               variantT={"p"}
               title={card.title}

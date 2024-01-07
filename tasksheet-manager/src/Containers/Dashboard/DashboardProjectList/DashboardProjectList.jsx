@@ -4,7 +4,8 @@ import SupportingText from "Components/Common/SupportingText";
 import Text from "Components/Common/Text";
 import React from "react";
 import { createUseStyles } from "react-jss";
-import CardContainer from "Containers/Dashboard/DashboardProjectList/Card/CardContainer"
+import CardContainer from "Containers/Dashboard/DashboardProjectList/Card/CardContainer";
+import Border from "Components/Common/Border";
 
 const useStyle = createUseStyles({
   CustomTextStyle: {
@@ -24,11 +25,15 @@ const useStyle = createUseStyles({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  border:{
-    height: "1px",
-    background:"#ECECEC",
-    margin: "10px -24px",    
-  }
+  SupportingText: {
+    fontFamily: "Plus Jakarta Sans",
+    backgroundColor: "#F7FBFF",
+    color: "#0463D1",
+    fontSize: "0.800vw",
+    fontWeight: "500",
+    borderRadius: "176px",
+    padding: "4px 16px",
+  },
 });
 
 const DashboardProjectList = () => {
@@ -43,14 +48,17 @@ const DashboardProjectList = () => {
             title={"Project list"}
             classes={classes.CustomTextStyle}
           />
-          <SupportingText SupportingTitle={"12 Project"} />
+          <SupportingText
+            classes={classes.SupportingText}
+            SupportingTitle={"12 Project"}
+          />
         </div>
         <SearchBar placeholder={"Search Project"} />
       </div>
 
-      <div className={classes.border}></div>
+      <Border />
 
-    <CardContainer />
+      <CardContainer />
     </>
   );
 };

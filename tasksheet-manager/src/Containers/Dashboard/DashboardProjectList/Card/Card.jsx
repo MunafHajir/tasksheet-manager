@@ -23,11 +23,11 @@ const useStyle = createUseStyles({
   },
 });
 
-const Card = ({ variantT, variantU, title, users, classesT, classesU }) => {
+const Card = ({ variantT, variantU, title, users, classesT, classesU , logic}) => {
   const classes = useStyle();
   return (
     <>
-      <Box className={classes.container}>
+      <Box className={classes.container} onClick={() => logic(title)} >
         <box className={classes.Text}>
           <Typography variant={variantT} className={`${classesT}`}>
             {title}

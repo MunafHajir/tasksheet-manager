@@ -5,7 +5,8 @@ import Text from "Components/Common/Text";
 import InputLabelText from "Components/Common/InputLabelText";
 import Input from "Components/Common/Input";
 import NewProjectUserSelection from "Components/Common/NewProjectUserSelection";
-import NewProjectUserSelectionModel from "Components/NewProjectUserSelectionModel";
+import NewProjectUserSelectionModel from "Components/Common/NewProjectUserSelectionModel";
+import Border from "Components/Common/Border";
 
 const useStyle = createUseStyles({
   CustomTextStyle: {
@@ -57,8 +58,8 @@ const useStyle = createUseStyles({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "704px",
-    height:'595px',
+    // width: "704px",
+    // height:'595px',
     background: "#FFFFFF",
     border: " none",
     outline:'none',
@@ -84,7 +85,7 @@ const CreateNewProject = () => {
             />
           </div>
         </div>
-        <hr />
+        <Border />
         <div className={classes.conatiner}>
           <Box sx={{ display: "flex", width: "100%", gap: "4%" }}>
             <Box className={classes.inputBox}>

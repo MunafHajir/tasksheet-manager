@@ -2,14 +2,14 @@ import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Modal, Tab } from "@mui/material";
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
-import SearchBar from "./Common/SearchBar";
+import SearchBar from "./SearchBar";
 
 const useStyles = createUseStyles({
   font: {
     fontFamily: "Plus Jakarta Sans",
     textTransform: "none",
     fontWeight: "600",
-    fontSize: "18px",
+    fontSize: "16px",
     padding: "16px 8px",
     width: "33.3%",
   },

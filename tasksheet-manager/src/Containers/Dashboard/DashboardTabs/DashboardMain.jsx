@@ -74,7 +74,7 @@ function a11yProps(index) {
   };
 }
 
-const DashboardMain = () => {
+const DashboardMain = (props) => {
   const [value, setValue] = React.useState(0);
   const classes = useStyle();
   const handleChange = (event, newValue) => {

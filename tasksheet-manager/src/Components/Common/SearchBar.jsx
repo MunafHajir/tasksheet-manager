@@ -14,12 +14,15 @@ const useStyle = createUseStyles({
     border: "1px solid #CBCBCB",
     display: "flex",
     alignItems: "center",
+    position:"relative"
   },
   Icon: {
     padding: "0px 15px",
     cursor: "pointer",
     display:"flex",
-    alignItems:"center"
+    alignItems:"center",
+    position:"absolute",
+    right:"0px"
   },
 });
 
