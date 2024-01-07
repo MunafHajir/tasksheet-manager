@@ -12,12 +12,15 @@ const useStyle = createUseStyles({
     boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
     padding: "16px",
     borderRadius: "8px",
+    maxWidth: "280px",
+    cursor: "pointer",
+    border: "1px solid #ECECEC",
   },
-  Text:{
-    display:"flex",
-    flexDirection:"column",
-    gap:"4px",
-  }
+  Text: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "4px",
+  },
 });
 
 const Card = ({ variantT, variantU, title, users, classesT, classesU }) => {
