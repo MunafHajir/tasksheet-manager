@@ -151,7 +151,7 @@
 // export default DashboardMain;
 
 import { Box, CssBaseline } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
 
@@ -162,43 +162,81 @@ const useStyle = createUseStyles({
     alignItems: "center",
     height: "56px",
     padding: "0 72px",
-    borderTop: "1px solid #4F4F4F",
-    borderBottom: "1px solid #4F4F4F",
+    borderTop: "0.2px solid #4F4F4F",
+    borderBottom: "0.2px solid #4F4F4F",
   },
   width: {
     width: "170px",
     display: "flex",
     justifyContent: "center",
+    alignItems:'center',
   },
-  flex: {
+  creteProjectWidth:{
+    width:'232px',
     display: "flex",
     justifyContent: "center",
   },
+  flex: {
+    display: "flex",
+    padding:'15px',
+    justifyContent: "center",
+  },
   activeLink: {
-    color: "blue",
-    borderBottom:"5px solid blue"
- },
+    color: "#828080",
+    textDecoration: "none",
+  },
+  focusedTab: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    height:'100%',
+    borderBottom: "3px solid #0463D1",
+    color: "#0463D1",
+    padding:'15px',
+    textDecoration:'none'
+  },
 });
 
 const DashboardMain = () => {
   const classes = useStyle();
+  const [currentTab, setCurrentTab] = useState("Dashboard");
+  const handleFocus = (tab) => {
+    setCurrentTab(`${tab}`);
+  };
   return (
     <>
       <CssBaseline />
       <Box className={classes.DasboardMain}>
         <Box className={classes.flex}>
-          <Box className={classes.width}>
-            <Link to="/" activeClassName={classes.activeLink} >Dashboard</Link>
+          <Box
+            className={ classes.width}
+            onClick={() => handleFocus("Dashboard")}
+          >
+            <Link to="/" className={currentTab=='Dashboard' ? classes.focusedTab : classes.activeLink}>
+              Dashboard
+            </Link>
           </Box>
-          <Box className={classes.width}>
-            <Link to="/UserList" activeClassName={classes.activeLink}>UserList</Link>
+          <Box
+            className={classes.width}
+            onClick={() => handleFocus("UserList")}
+          >
+            <Link to="/UserList" className={currentTab=='UserList' ? classes.focusedTab : classes.activeLink}>
+              UserList
+            </Link>
           </Box>
-          <Box className={classes.width}>
-            <Link to="/ProjectList" activeClassName={classes.activeLink}>ProjectList</Link>
+          <Box
+            className={classes.width}
+            onClick={() => handleFocus("ProjectList")}
+          >
+            <Link to="/ProjectList" className={currentTab=='ProjectList' ? classes.focusedTab : classes.activeLink}>
+              ProjectList
+            </Link>
           </Box>
         </Box>
-        <Box className={classes.width}>
-          <Link to="/CreateNewProject" activeClassName={classes.activeLink}>Create New Project</Link>
+        <Box className={classes.creteProjectWidth} onClick={() => handleFocus("Create New Project")}>
+          <Link to="/CreateNewProject" className={currentTab=='Create New Project' ? classes.focusedTab : classes.activeLink}>
+            Create New Project
+          </Link>
         </Box>
       </Box>
     </>
