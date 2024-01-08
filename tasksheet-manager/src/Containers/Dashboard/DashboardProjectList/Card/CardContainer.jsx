@@ -1,6 +1,8 @@
 import Card from "Containers/Dashboard/DashboardProjectList/Card/Card";
+import { reRender } from "Stores/Action/Action";
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const useStyle = createUseStyles({
@@ -25,6 +27,7 @@ const useStyle = createUseStyles({
 });
 
 const CardContainer = () => {
+  const dispatch = useDispatch();
   const classes = useStyle();
   const navigate = useNavigate();
 
@@ -42,8 +45,9 @@ const CardContainer = () => {
   //   rows.push(cardsData.slice(i, i + cardsInRow));
   // }
 
-  const handleProjectDetail = (value) => {
-    navigate(`${value}`);
+  const handleProjectDetail = value => {
+    dispatch(reRender(true));
+    navigate(`/ProjectList/${value}`);
   };
 
   return (

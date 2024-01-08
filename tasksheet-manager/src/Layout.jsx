@@ -1,9 +1,14 @@
-import React from 'react'
+import { Box } from "@mui/material";
+import DashboardMain from "Containers/Dashboard/DashboardTabs/DashboardMain";
+import React from "react";
 
-const Layout = (props) => {
+const Layout = props => {
   return (
-    <div>{props.children}</div>
-  )
-}
+    <>
+      <DashboardMain />
+      <Box>{props.children}</Box>
+    </>
+  );
+};
 
-export default Layout
+export default Layout;

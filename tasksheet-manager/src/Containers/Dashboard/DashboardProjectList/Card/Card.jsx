@@ -8,7 +8,7 @@ const useStyle = createUseStyles({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    flex: "0 0 24%",
+    flex: "0 0 23.9%",
     boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
     padding: "16px",
     borderRadius: "8px",
