@@ -35,6 +35,13 @@ const options = {
       pointPadding:0,
       groupPadding:0.37
     },
+    series: {
+      animation: false,
+      dataLabels: {
+        enabled: false,
+      },
+      enableMouseTracking: false,
+    },
   },
   series: [
     {
