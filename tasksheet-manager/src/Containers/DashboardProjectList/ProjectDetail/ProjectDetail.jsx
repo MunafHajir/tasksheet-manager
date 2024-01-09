@@ -1,10 +1,10 @@
-import { reRender } from "Stores/Action/Action";
+// import { reRender } from "Stores/Action/Action";
 import React from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ProjectDetail = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { ProjectName } = useParams();
 const navigate = useNavigate()
   const handleBack = () => {

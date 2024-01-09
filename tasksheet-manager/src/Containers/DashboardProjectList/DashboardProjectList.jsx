@@ -4,7 +4,7 @@ import SupportingText from "Components/Common/SupportingText";
 import Text from "Components/Common/Text";
 import React from "react";
 import { createUseStyles } from "react-jss";
-import CardContainer from "Containers/Dashboard/DashboardProjectList/Card/CardContainer";
+import CardContainer from "./Card/CardContainer";
 import Border from "Components/Common/Border";
 
 const useStyle = createUseStyles({
@@ -35,8 +35,8 @@ const useStyle = createUseStyles({
     padding: "4px 16px",
   },
   searchWidth: {
-    width:'18vw'
-  }
+    width: "18vw",
+  },
 });
 
 const DashboardProjectList = () => {
@@ -56,7 +56,10 @@ const DashboardProjectList = () => {
             SupportingTitle={"12 Project"}
           />
         </div>
-        <SearchBar placeholder={"Search Project"} styleSearch={classes.searchWidth}/>
+        <SearchBar
+          placeholder={"Search Project"}
+          styleSearch={classes.searchWidth}
+        />
       </div>
 
       <Border />

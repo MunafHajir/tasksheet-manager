@@ -1,8 +1,9 @@
+
 import CreateNewProject from "Containers/CreateNewProject/CreateNewProject";
-import DashboardProjectList from "Containers/Dashboard/DashboardProjectList/DashboardProjectList";
-import ProjectDetail from "Containers/Dashboard/DashboardProjectList/ProjectDetail/ProjectDetail";
-import DashboardUserDetails from "Containers/Dashboard/DashboardUserList/DashboardUserDetails/DashboardUserDetails";
-import DashboardUserList from "Containers/Dashboard/DashboardUserList/DashboardUserList";
+import DashboardProjectList from "Containers/DashboardProjectList/DashboardProjectList";
+import ProjectDetail from "Containers/DashboardProjectList/ProjectDetail/ProjectDetail";
+import DashboardUserDetails from "Containers/DashboardUserList/DashboardUserDetails/DashboardUserDetails";
+import DashboardUserList from "Containers/DashboardUserList/DashboardUserList";
 import Layout from "Layout";
 import React from "react";
 import { Route, Routes } from "react-router-dom";

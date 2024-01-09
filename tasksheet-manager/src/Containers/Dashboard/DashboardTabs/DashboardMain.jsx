@@ -49,13 +49,13 @@
 //   return (
 //     <div
 //       role="tabpanel"
-//       hidden={value !== index}
+//       hidden={value !=== index}
 //       id={`simple-tabpanel-${index}`}
 //       aria-labelledby={`simple-tab-${index}`}
 //       {...other}
 //       className={classes.CustomTabPanel}
 //     >
-//       {value === index && (
+//       {value ==== index && (
 //         <Box sx={{ p: 3, minHeight: "90vh" }}>
 //           <Typography className={classes.customTabPanel}>{children}</Typography>
 //         </Box>
@@ -169,38 +169,55 @@ const useStyle = createUseStyles({
     width: "170px",
     display: "flex",
     justifyContent: "center",
-    alignItems:'center',
+    alignItems: "center",
   },
-  creteProjectWidth:{
-    width:'232px',
+  creteProjectWidth: {
+    width: "232px",
     display: "flex",
+    color: "#0463D1",
     justifyContent: "center",
+    height: "56px",
   },
   flex: {
     display: "flex",
-    padding:'15px',
+    padding: "15px",
     justifyContent: "center",
   },
   activeLink: {
     color: "#828080",
     textDecoration: "none",
+    height: "56px",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  actLink:{
+    color: "#0463D1",
+    textDecoration: "none",
+    height: "56px",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   focusedTab: {
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    height:'100%',
+    height: "100%",
     borderBottom: "3px solid #0463D1",
     color: "#0463D1",
-    padding:'15px',
-    textDecoration:'none'
+    // padding:'15px 0',
+    alignItems: "center",
+    textDecoration: "none",
   },
 });
 
 const DashboardMain = () => {
   const classes = useStyle();
   const [currentTab, setCurrentTab] = useState("Dashboard");
-  const handleFocus = (tab) => {
+  const handleFocus = tab => {
     setCurrentTab(`${tab}`);
   };
   return (
@@ -209,10 +226,17 @@ const DashboardMain = () => {
       <Box className={classes.DasboardMain}>
         <Box className={classes.flex}>
           <Box
-            className={ classes.width}
+            className={classes.width}
             onClick={() => handleFocus("Dashboard")}
           >
-            <Link to="/" className={currentTab=='Dashboard' ? classes.focusedTab : classes.activeLink}>
+            <Link
+              to="/"
+              className={
+                currentTab === "Dashboard"
+                  ? classes.focusedTab
+                  : classes.activeLink
+              }
+            >
               Dashboard
             </Link>
           </Box>
@@ -220,7 +244,14 @@ const DashboardMain = () => {
             className={classes.width}
             onClick={() => handleFocus("UserList")}
           >
-            <Link to="/UserList" className={currentTab=='UserList' ? classes.focusedTab : classes.activeLink}>
+            <Link
+              to="/UserList"
+              className={
+                currentTab === "UserList"
+                  ? classes.focusedTab
+                  : classes.activeLink
+              }
+            >
               UserList
             </Link>
           </Box>
@@ -228,14 +259,31 @@ const DashboardMain = () => {
             className={classes.width}
             onClick={() => handleFocus("ProjectList")}
           >
-            <Link to="/ProjectList" className={currentTab=='ProjectList' ? classes.focusedTab : classes.activeLink}>
+            <Link
+              to="/ProjectList"
+              className={
+                currentTab === "ProjectList"
+                  ? classes.focusedTab
+                  : classes.activeLink
+              }
+            >
               ProjectList
             </Link>
           </Box>
         </Box>
-        <Box className={classes.creteProjectWidth} onClick={() => handleFocus("Create New Project")}>
-          <Link to="/CreateNewProject" className={currentTab=='Create New Project' ? classes.focusedTab : classes.activeLink}>
-            Create New Project
+        <Box
+          className={classes.creteProjectWidth}
+          onClick={() => handleFocus("Create New Project")}
+        >
+          <Link
+            to="/CreateNewProject"
+            className={
+              currentTab === "Create New Project"
+                ? classes.focusedTab
+                : classes.actLink
+            }
+          >
+            + Create New Project
           </Link>
         </Box>
       </Box>

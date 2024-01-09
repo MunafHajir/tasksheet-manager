@@ -1,8 +1,7 @@
-import Card from "Containers/Dashboard/DashboardProjectList/Card/Card";
-import { reRender } from "Stores/Action/Action";
+import Card from "./Card";
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const useStyle = createUseStyles({
@@ -27,7 +26,7 @@ const useStyle = createUseStyles({
 });
 
 const CardContainer = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const classes = useStyle();
   const navigate = useNavigate();
 
@@ -46,7 +45,7 @@ const CardContainer = () => {
   // }
 
   const handleProjectDetail = value => {
-    dispatch(reRender(true));
+    // dispatch(reRender(true));
     navigate(`/ProjectList/${value}`);
   };
 
