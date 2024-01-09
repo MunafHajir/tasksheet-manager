@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
 import SearchBar from "Components/Common/SearchBar";
 import SelectBox from "Components/Common/SelectBox";
+import SupportingText from "Components/Common/SupportingText";
+import ProjectTimelineGraph from "Components/Graph/ProjectTimelineGraph";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { useNavigate, useParams } from "react-router-dom";
@@ -20,12 +22,41 @@ const useStyle = createUseStyles({
   },
   ContainerWidth: {
     minWidth: "17vw",
+    backgroundColor: "#fff",
   },
-  Container:{
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems:"center"
-  }
+  Container: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    background: "#E6F3FF",
+    borderRadius: "8px 8px 0px 0px",
+    padding: "5px 24px",
+  },
+  textContainer: {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+  },
+  supportingText: {
+    color: "#0463D1",
+    fontFamily: "Plus Jakarta Sans",
+    fontSize: "14px",
+    fontWeight: 500,
+    lineHeight: "20px",
+  },
+  SupportingContainer: {
+    padding: "4px 16px",
+    background: "#F7FBFF",
+    borderRadius: "216px",
+  },
+  projectName: {
+    color: "#242424",
+    fontFamily: "Poppins",
+    fontSize: "18px",
+    fontStyle: "normal",
+    fontWeight: 500,
+    lineHeight: "28px",
+  },
 });
 
 const ProjectDetail = () => {
@@ -79,16 +110,22 @@ const ProjectDetail = () => {
         </Box>
       </Box>
       <Box className={classes.Container}>
-        <Box>
-          <p>{ProjectName}</p>
-          <p>Dashboard</p>
+        <Box className={classes.textContainer}>
+          <p className={classes.projectName}>{`${ProjectName} Dashboard`}</p>
+          <Box className={classes.SupportingContainer}>
+            <SupportingText
+              classes={classes.supportingText}
+              SupportingTitle={`Project start date : Sept 23, 2023`}
+            />
+          </Box>
         </Box>
         <SelectBox
           menuList={data}
           title={"Select Stage Of Project"}
           ContainerWidth={classes.ContainerWidth}
         />
-        </Box>
+      </Box>
+      <ProjectTimelineGraph />
     </>
   );
 };

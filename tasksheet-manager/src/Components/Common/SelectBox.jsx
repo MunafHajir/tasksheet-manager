@@ -21,11 +21,13 @@ const useStyle = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     padding: "8px 16px",
+    paddingLeft:"0px",
+    cursor:"pointer"
   },
   icon: {
     fill: "black",
-    width: "16px",
     height: "16px",
+    marginBottom:"4px",
   },
 });
 
@@ -44,6 +46,10 @@ const SelectBox = props => {
         className={`${classes.MainContainer} ${props.ContainerWidth}`}
       >
         <Select
+          sx={{
+            height: 40,
+            overflow:"hidden"
+          }}
           value={select}
           onChange={handleChange}
           displayEmpty
@@ -60,7 +66,7 @@ const SelectBox = props => {
             </Box>
           )}
         >
-          <MenuItem value="" >
+          <MenuItem value="">
             <p className={`${classes.p} ${props.classesP} ${classes.padding} `}>
               {props.title}
             </p>
