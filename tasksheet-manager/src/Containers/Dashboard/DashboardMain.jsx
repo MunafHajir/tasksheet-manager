@@ -164,6 +164,7 @@ const useStyle = createUseStyles({
     padding: "0 72px",
     borderTop: "0.2px solid #4F4F4F",
     borderBottom: "0.2px solid #4F4F4F",
+    boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
   },
   width: {
     width: "170px",

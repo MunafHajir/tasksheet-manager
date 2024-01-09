@@ -1,4 +1,4 @@
-import { CssBaseline } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 import SearchBar from "Components/Common/SearchBar";
 import SupportingText from "Components/Common/SupportingText";
 import Text from "Components/Common/Text";
@@ -37,6 +37,13 @@ const useStyle = createUseStyles({
   searchWidth: {
     width: "18vw",
   },
+  style: {
+    borderRadius: "8px",
+    border: "1px solid #ECECEC",
+    background: "#FFF",
+    boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
+    padding: "20px 24px",
+  },
 });
 
 const DashboardProjectList = () => {
@@ -44,27 +51,29 @@ const DashboardProjectList = () => {
   return (
     <>
       <CssBaseline />
-      <div className={classes.MainContainer}>
-        <div className={classes.Main}>
-          <Text
-            TextVariant={"h5"}
-            title={"Project list"}
-            classes={classes.CustomTextStyle}
-          />
-          <SupportingText
-            classes={classes.SupportingText}
-            SupportingTitle={"12 Project"}
+      <Box className={classes.style}>
+        <div className={classes.MainContainer}>
+          <div className={classes.Main}>
+            <Text
+              TextVariant={"h5"}
+              title={"Project list"}
+              classes={classes.CustomTextStyle}
+            />
+            <SupportingText
+              classes={classes.SupportingText}
+              SupportingTitle={"12 Project"}
+            />
+          </div>
+          <SearchBar
+            placeholder={"Search Project"}
+            styleSearch={classes.searchWidth}
           />
         </div>
-        <SearchBar
-          placeholder={"Search Project"}
-          styleSearch={classes.searchWidth}
-        />
-      </div>
 
-      <Border />
+        <Border />
 
-      <CardContainer />
+        <CardContainer />
+      </Box>
     </>
   );
 };
