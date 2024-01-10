@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 import ProjectBox from "./ProjectBox";
 import { ProjectList } from "./ProjectList";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ActiveProject } from "Stores/Action/Action";
 import ModalComp from "Components/Common/Model";
 
@@ -39,7 +39,7 @@ export default function PaticularUserPorjectSection() {
   const projectLists = ProjectList;
   useEffect(() => {
     dispatch(ActiveProject(activeProject));
-  }, [activeIndex] );
+  }, [activeIndex]);
  
   const toggleButton = (index, projectName) => {
     setActiveIndex(index === activeIndex ? 0 : index);

@@ -44,6 +44,9 @@ const useStyle = createUseStyles({
     boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
     padding: "20px 24px",
   },
+  borderWidth:{
+    margin:"20px -24px",
+  }
 });
 
 const DashboardProjectList = () => {
@@ -70,7 +73,7 @@ const DashboardProjectList = () => {
           />
         </div>
 
-        <Border />
+        <Border borderWidth={classes.borderWidth}/>
 
         <CardContainer />
       </Box>

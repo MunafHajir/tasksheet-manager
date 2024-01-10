@@ -109,6 +109,42 @@ const useStyle = createUseStyles({
   borderWidth: {
     margin: "45px -20px",
   },
+  UserContainer: {
+    padding: "15px 24px",
+    display: "flex",
+    gap: "12px",
+    borderRadius: "8px 8px 0px 0px",
+    borderTop: "1px solid #D6D6D6",
+    borderRight: "1px solid #D6D6D6",
+    borderLeft: "1px solid #D6D6D6",
+    background: "#F7FBFF",
+    alignItems: "center",
+  },
+  UserSupportingText: {
+    fontFamily: "Plus Jakarta Sans",
+    backgroundColor: "#DEEFFF",
+    color: "#0463D1",
+    fontSize: "16px",
+    fontWeight: "500",
+    borderRadius: "176px",
+    padding: "1.5px 16px",
+  },
+  Text: {
+    color: "#101828",
+    fontFamily: "Plus Jakarta Sans",
+    fontSize: "18px",
+    fontWeight: 500,
+    lineHeight: "28px",
+  },
+  flex: {
+    display: "flex",
+    justifyContent: 'center',
+    alignItems: "center",
+    gap: "20px",
+  },
+  selectHeight:{
+    height:"40px"
+  }
 });
 
 const ProjectDetail = () => {
@@ -209,6 +245,7 @@ const ProjectDetail = () => {
             title={"Select Stage Of Project"}
             ContainerWidth={classes.ContainerWidth}
             dropDownIconColor={"Black"}
+            selectHeight={classes.selectHeight}
           />
         </Box>
         <Box className={classes.graphGap}>
@@ -223,6 +260,7 @@ const ProjectDetail = () => {
                 ContainerWidth={classes.weekContainer}
                 classesP={classes.colorWhite}
                 dropDownIconColor={"white"}
+                selectHeight={classes.selectHeight}
               />
               <SelectBox
                 menuList={Month}
@@ -230,6 +268,7 @@ const ProjectDetail = () => {
                 ContainerWidth={classes.MonthContainer}
                 // classesP={classes.colorWhite}
                 dropDownIconColor={"black"}
+                selectHeight={classes.selectHeight}
               />
             </Box>
           </Box>
@@ -238,7 +277,41 @@ const ProjectDetail = () => {
             <Border borderWidth={classes.borderWidth} />
           </Box>
         </Box>
-        <AddUser title={<Text title={"Developers"}/>} userCount={20} AddUserData={UserData}/>
+        <Box className={classes.flex} >
+          <AddUser
+            UserContainer={classes.UserContainer}
+            title={<Text title={"Developers"} classes={classes.Text} />}
+            userCount={
+              <SupportingText
+                SupportingTitle={20}
+                classes={classes.UserSupportingText}
+              />
+            }
+            AddUserData={UserData}
+          />
+          <AddUser
+            UserContainer={classes.UserContainer}
+            title={<Text title={"Designer"} classes={classes.Text} />}
+            userCount={
+              <SupportingText
+                SupportingTitle={20}
+                classes={classes.UserSupportingText}
+              />
+            }
+            AddUserData={UserData}
+          />
+          <AddUser
+            UserContainer={classes.UserContainer}
+            title={<Text title={"Quality Assurance"} classes={classes.Text} />}
+            userCount={
+              <SupportingText
+                SupportingTitle={20}
+                classes={classes.UserSupportingText}
+              />
+            }
+            AddUserData={UserData}
+          />
+        </Box>
       </Box>
     </>
   );

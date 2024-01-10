@@ -5,7 +5,7 @@ import Text from "Components/Common/Text";
 import InputLabelText from "Components/Common/InputLabelText";
 import Input from "Components/Common/Input";
 import NewProjectUserSelection from "Containers/CreateNewProject/NewProjectUserSelection";
-import NewProjectUserSelectionModel from "Containers/CreateNewProject/NewProjectUserSelectionModel";
+import NewProjectUserSelectionModel from "Components/Common/ModelSelection";
 import Border from "Components/Common/Border";
 
 const useStyle = createUseStyles({

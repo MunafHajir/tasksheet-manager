@@ -5,7 +5,6 @@ import DashboardProjectList from "Containers/DashboardProjectList/DashboardProje
 import ProjectDetail from "Containers/DashboardProjectList/ProjectDetail/ProjectDetail";
 import DashboardUserList from "Containers/DashboardUserList/DashboardUserList";
 import PaticularUserSection from "Containers/DashboardUserList/UserDetail/UserDetail";
-import UserDetail from "Containers/DashboardUserList/UserDetail/UserDetail";
 import Layout from "Layout";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
