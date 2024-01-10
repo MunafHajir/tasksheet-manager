@@ -95,6 +95,7 @@ const NewProjectUserSelectionModel = ({ open, logic, modelStyle }) => {
               variant="contained"
               btntext={"save"}
               buttonStyle={classes.btn}
+              logic={logic}
             />
           </TabPanel>
           <TabPanel value="2" className={classes.tabPanel}>

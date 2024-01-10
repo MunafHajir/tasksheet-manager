@@ -4,8 +4,9 @@ import SupportingText from "Components/Common/SupportingText";
 import Text from "Components/Common/Text";
 import React from "react";
 import { createUseStyles } from "react-jss";
-import CardContainer from "Containers/Dashboard/DashboardProjectList/Card/CardContainer";
+import CardContainer from "./Card/CardContainer";
 import Border from "Components/Common/Border";
+
 
 const useStyle = createUseStyles({
   CustomTextStyle: {
@@ -35,29 +36,33 @@ const useStyle = createUseStyles({
     padding: "4px 16px",
   },
   searchWidth: {
-    width:'18vw'
+    width:'30vw'
   }
 });
 
-const DashboardProjectList = () => {
+const DashboardUserList = () => {
   const classes = useStyle();
   return (
     <>
       <CssBaseline />
-      <div className={classes.MainContainer}>
+      <box className={classes.MainContainer}>
         <div className={classes.Main}>
           <Text
             TextVariant={"h5"}
-            title={"Project list"}
+            title={"User list"}
             classes={classes.CustomTextStyle}
           />
           <SupportingText
             classes={classes.SupportingText}
-            SupportingTitle={"12 Project"}
+            SupportingTitle={"12 User"}
           />
+          
         </div>
-        <SearchBar placeholder={"Search Project"} styleSearch={classes.searchWidth}/>
-      </div>
+        
+      </box>
+      <box className={classes.Main} >
+        <SearchBar placeholder={"Search User"} styleSearch={classes.searchWidth}/>
+      </box>
 
       <Border />
 
@@ -66,4 +71,4 @@ const DashboardProjectList = () => {
   );
 };
 
-export default DashboardProjectList;
+export default DashboardUserList;
