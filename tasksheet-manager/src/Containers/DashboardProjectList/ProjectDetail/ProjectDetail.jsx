@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import SearchBar from "Components/Common/SearchBar";
 import SelectBox from "Components/Common/SelectBox";
 import SupportingText from "Components/Common/SupportingText";
+import Text from "Components/Common/Text";
 import ProjectTimelineGraph from "Components/Graph/ProjectTimelineGraph";
 import React from "react";
 import { createUseStyles } from "react-jss";
@@ -23,6 +24,14 @@ const useStyle = createUseStyles({
   ContainerWidth: {
     minWidth: "17vw",
     backgroundColor: "#fff",
+  },
+  weekContainer: {
+    backgroundColor: "#0463D1",
+    borderRadius: "8px",
+    color: "#fff",
+  },
+  colorWhite: {
+    color: "#fff",
   },
   Container: {
     display: "flex",
@@ -57,6 +66,43 @@ const useStyle = createUseStyles({
     fontWeight: 500,
     lineHeight: "28px",
   },
+  TimelineGap: {
+    display: "flex",
+    gap: "12px",
+  },
+  timeline: {
+    color: "#1D2129",
+    fontFamily: "Plus Jakarta Sans",
+    fontSize: "20px",
+    fontWeight: 600,
+    lineHeight: "28px",
+  },
+  MonthContainer: {
+    background: "#fff",
+  },
+  TimelineContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    background: "#fff",
+    borderRadius: "8px 8px 0px 0px",
+    padding: "35px 30px",
+  },
+  projectGap: {
+    // display: "flex",
+    // gap: "45px",
+    margin: "45px 0px",
+    width:"100%",
+    backgroundColor: "#fff",
+  },
+  graphGap: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  GraphWidth:{
+    padding:"20px",
+    backgroundColor:"#fff"
+  }
 });
 
 const ProjectDetail = () => {
@@ -72,6 +118,28 @@ const ProjectDetail = () => {
     { value: "Development Stage" },
     { value: "Testing Stage" },
     { value: "Project Completed" },
+  ];
+
+  const week = [
+    { value: "Week 1" },
+    { value: "Week 2" },
+    { value: "Week 3" },
+    { value: "Week 4" },
+  ];
+
+  const Month = [
+    { value: "January" },
+    { value: "February" },
+    { value: "March" },
+    { value: "April" },
+    { value: "May" },
+    { value: "June" },
+    { value: "July" },
+    { value: "August" },
+    { value: "September" },
+    { value: "October" },
+    { value: "November" },
+    { value: "December" },
   ];
 
   return (
@@ -109,23 +177,52 @@ const ProjectDetail = () => {
           />
         </Box>
       </Box>
-      <Box className={classes.Container}>
-        <Box className={classes.textContainer}>
-          <p className={classes.projectName}>{`${ProjectName} Dashboard`}</p>
-          <Box className={classes.SupportingContainer}>
-            <SupportingText
-              classes={classes.supportingText}
-              SupportingTitle={`Project start date : Sept 23, 2023`}
-            />
+
+      <Box classname={classes.projectGap}>
+        <Box className={classes.Container}>
+          <Box className={classes.textContainer}>
+            <p className={classes.projectName}>{`${ProjectName} Dashboard`}</p>
+            <Box className={classes.SupportingContainer}>
+              <SupportingText
+                classes={classes.supportingText}
+                SupportingTitle={`Project start date : Sept 23, 2023`}
+              />
+            </Box>
+          </Box>
+          <SelectBox
+            menuList={data}
+            title={"Select Stage Of Project"}
+            ContainerWidth={classes.ContainerWidth}
+            dropDownIconColor={"Black"}
+          />
+        </Box>
+        <Box className={classes.graphGap}>
+          <Box className={classes.TimelineContainer}>
+            <Box>
+              <Text title={"Project timeline"} classes={classes.timeline} />
+            </Box>
+            <Box className={classes.TimelineGap}>
+              <SelectBox
+                menuList={week}
+                title={"weeks"}
+                ContainerWidth={classes.weekContainer}
+                classesP={classes.colorWhite}
+                dropDownIconColor={"white"}
+              />
+              <SelectBox
+                menuList={Month}
+                title={"Months"}
+                ContainerWidth={classes.MonthContainer}
+                // classesP={classes.colorWhite}
+                dropDownIconColor={"black"}
+              />
+            </Box>
+          </Box>
+          <Box className={classes.GraphWidth}>
+            <ProjectTimelineGraph />
           </Box>
         </Box>
-        <SelectBox
-          menuList={data}
-          title={"Select Stage Of Project"}
-          ContainerWidth={classes.ContainerWidth}
-        />
       </Box>
-      <ProjectTimelineGraph />
     </>
   );
 };
