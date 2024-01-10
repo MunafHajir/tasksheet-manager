@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import Border from "Components/Common/Border";
 import SearchBar from "Components/Common/SearchBar";
 import SelectBox from "Components/Common/SelectBox";
 import SupportingText from "Components/Common/SupportingText";
@@ -7,6 +8,7 @@ import ProjectTimelineGraph from "Components/Graph/ProjectTimelineGraph";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { useNavigate, useParams } from "react-router-dom";
+import AddUser from "../AddUser/AddUser";
 
 const useStyle = createUseStyles({
   Back: {
@@ -91,18 +93,22 @@ const useStyle = createUseStyles({
   projectGap: {
     // display: "flex",
     // gap: "45px",
-    margin: "45px 0px",
-    width:"100%",
+    // margin: "45px 0px",
+    width: "100%",
     backgroundColor: "#fff",
   },
   graphGap: {
     display: "flex",
     flexDirection: "column",
   },
-  GraphWidth:{
-    padding:"20px",
-    backgroundColor:"#fff"
-  }
+  GraphWidth: {
+    padding: "20px",
+    backgroundColor: "#fff",
+    paddingBottom: "45px",
+  },
+  borderWidth: {
+    margin: "45px -20px",
+  },
 });
 
 const ProjectDetail = () => {
@@ -142,6 +148,15 @@ const ProjectDetail = () => {
     { value: "December" },
   ];
 
+  const UserData = [
+    { userName: "Master" },
+    { userName: "Pratik" },
+    { userName: "Omkar" },
+    { userName: "Vikas" },
+    { userName: "Shiv" },
+    { userName: "Hello" },
+  ];
+
   return (
     <>
       {/* <h1>hello</h1>
@@ -178,7 +193,7 @@ const ProjectDetail = () => {
         </Box>
       </Box>
 
-      <Box classname={classes.projectGap}>
+      <Box className={classes.projectGap}>
         <Box className={classes.Container}>
           <Box className={classes.textContainer}>
             <p className={classes.projectName}>{`${ProjectName} Dashboard`}</p>
@@ -220,8 +235,10 @@ const ProjectDetail = () => {
           </Box>
           <Box className={classes.GraphWidth}>
             <ProjectTimelineGraph />
+            <Border borderWidth={classes.borderWidth} />
           </Box>
         </Box>
+        <AddUser title={<Text title={"Developers"}/>} userCount={20} AddUserData={UserData}/>
       </Box>
     </>
   );
