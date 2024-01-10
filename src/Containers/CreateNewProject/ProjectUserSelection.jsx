@@ -63,8 +63,13 @@ const useStyles = createUseStyles({
     "SapphireStrider",
   ];
 
-const ProjectUserSelection = () => {
-    const classes = useStyles()
+const ProjectUserSelection = ({logic}) => {
+    const classes = useStyles();
+    const [value, setValue] = React.useState('1');
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
   return (
     <>
       <TabContext value={value}>

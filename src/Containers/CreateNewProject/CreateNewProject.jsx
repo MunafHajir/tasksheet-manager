@@ -5,8 +5,9 @@ import Text from "Components/Common/Text";
 import InputLabelText from "Components/Common/InputLabelText";
 import Input from "Components/Common/Input";
 import NewProjectUserSelection from "Containers/CreateNewProject/NewProjectUserSelection";
-import NewProjectUserSelectionModel from "Components/Common/ModelSelection";
 import Border from "Components/Common/Border";
+import ModelSelection from "Components/Common/ModelSelection";
+import ProjectUserSelection from "./ProjectUserSelection";
 
 const useStyle = createUseStyles({
   CustomTextStyle: {
@@ -99,7 +100,9 @@ const CreateNewProject = () => {
           </Box>
         </div>
         <div className={classes.conatiner}>
-          <NewProjectUserSelectionModel logic={handleClose} open={open} modelStyle={classes.model}/>
+          <ModelSelection logic={handleClose} open={open} modelStyle={classes.model}>
+            <ProjectUserSelection logic={handleClose}/>
+          </ModelSelection>
           <Box className={classes.selectBox}>
             <InputLabelText varient={"p"} labelText={"Users"} />
             <NewProjectUserSelection logic={handleOpen} />
