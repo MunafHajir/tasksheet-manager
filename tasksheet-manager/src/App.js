@@ -1,5 +1,6 @@
 
 import CreateNewProject from "Containers/CreateNewProject/CreateNewProject";
+import Dashboard from "Containers/Dashboard/Dashboard";
 import DashboardProjectList from "Containers/DashboardProjectList/DashboardProjectList";
 import ProjectDetail from "Containers/DashboardProjectList/ProjectDetail/ProjectDetail";
 import DashboardUserList from "Containers/DashboardUserList/DashboardUserList";
@@ -17,10 +18,12 @@ const App = () => {
           <Route path="/ProjectList" element={<DashboardProjectList />} />
           <Route path="/ProjectList/:ProjectName" element={<ProjectDetail />} />
           <Route path="/UserList" element={<DashboardUserList />} />
+         
+          <Route path="/" element={<Dashboard/>}/>
           <Route
             path="/UserList/:ProjectName"
             element={<PaticularUserSection/>}
-          />
+  />
           <Route path="/CreateNewProject" element={<CreateNewProject />} />
         </Routes>
       </Layout>

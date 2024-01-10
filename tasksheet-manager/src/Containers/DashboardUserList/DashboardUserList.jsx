@@ -6,9 +6,9 @@ import React from "react";
 import  createUseStyles  from "react-jss";
 import CardContainer from "./Card/CardContainer";
 import Border from "Components/Common/Border";
+import Button from "Components/Common/Button";
 
-
-const useStyle = createUseStyles({
+const useStyles = createUseStyles({
   CustomTextStyle: {
     fontFamily: "Plus Jakarta Sans",
     fontSize: "1vw",
@@ -35,17 +35,27 @@ const useStyle = createUseStyles({
     borderRadius: "176px",
     padding: "4px 16px",
   },
+  SearchContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    alignSelf: "stretch",
+  },
+  SearchBar: {
+    marginTop: "20px",
+  },
   searchWidth: {
-    width:'30vw'
-  }
+    width: '30vw',
+  },
 });
 
 const DashboardUserList = () => {
-  const classes = useStyle();
+  const classes = useStyles();
+
   return (
     <>
       <CssBaseline />
-      <box className={classes.MainContainer}>
+      <div className={classes.MainContainer}>
         <div className={classes.Main}>
           <Text
             TextVariant={"h5"}
@@ -56,13 +66,13 @@ const DashboardUserList = () => {
             classes={classes.SupportingText}
             SupportingTitle={"12 User"}
           />
-          
         </div>
-        
-      </box>
-      <box className={classes.Main} >
-        <SearchBar placeholder={"Search User"} styleSearch={classes.searchWidth}/>
-      </box>
+        <Button/>
+      </div>
+      
+      <div className={classes.SearchContainer}>
+        <SearchBar placeholder={"Search User"} styleSearch={classes.searchWidth} />
+      </div>
 
       <Border />
 

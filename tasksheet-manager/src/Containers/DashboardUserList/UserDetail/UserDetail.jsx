@@ -43,3 +43,14 @@ export default function PaticularUserSection() {
 
   
 
+// import { useParams } from 'react-router-dom';
+// const UserDetail = () => {
+//   const { UserName } = useParams();
+//   return (
+//     <>
+//        <h1>{UserName}</h1>
+//     </>
+//   )
+// }
+
+// export default UserDetail
