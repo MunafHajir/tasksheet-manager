@@ -3,7 +3,7 @@ import DashboardMain from 'Containers/Dashboard/DashboardTabs/DashboardMain'
 import Layout from 'Layout'
 import React from 'react'
 import { Route , Routes } from 'react-router-dom'
-import HightChart from 'Components/HightChart'
+// import HightChart from 'Components/HightChart'
 
 const Router = () => {
   return (
@@ -11,7 +11,8 @@ const Router = () => {
     <Routes>
         <Route path='/Dashboard' element={<DashboardMain />}/>
         <Route path='/Dashboard/:ProjectName' element={<ProjectDetail />}/>
-        <Route path='/Chart' element={<HightChart/>}/>
+        {/* <Route path='/Chart' element={<HightChart/>}/> */}
+        
     </Routes>
    </Layout>
   )

@@ -3,6 +3,7 @@ import SearchBar from "Components/Common/SearchBar";
 import SelectBox from "Components/Common/SelectBox";
 import SupportingText from "Components/Common/SupportingText";
 import ProjectTimelineGraph from "Components/Graph/ProjectTimelineGraph";
+import PMTable from "Components/Table/PMTable";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { useNavigate, useParams } from "react-router-dom";
@@ -126,6 +127,7 @@ const ProjectDetail = () => {
         />
       </Box>
       <ProjectTimelineGraph />
+      <PMTable />
     </>
   );
 };

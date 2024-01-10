@@ -14,10 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/highcharts": "^7.0.0",
     "axios": "^1.6.3",
-<<<<<<< HEAD
-=======
     "highcharts": "^11.2.0",
->>>>>>> 018cedd637285c08a927e67c90ee3a710e5bc2bc
     "highcharts-react-official": "^3.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
