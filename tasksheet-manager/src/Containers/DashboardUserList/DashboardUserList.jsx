@@ -3,7 +3,7 @@ import SearchBar from "Components/Common/SearchBar";
 import SupportingText from "Components/Common/SupportingText";
 import Text from "Components/Common/Text";
 import React from "react";
-import { createUseStyles } from "react-jss";
+import  createUseStyles  from "react-jss";
 import CardContainer from "./Card/CardContainer";
 import Border from "Components/Common/Border";
 

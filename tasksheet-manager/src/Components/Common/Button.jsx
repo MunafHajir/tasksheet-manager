@@ -1,12 +1,20 @@
-import { Button } from '@mui/material'
-import React from 'react'
+import { Box, Button } from "@mui/material";
+import React from "react";
 
-const ButtonComp = ({variant,btntext, buttonStyle , logic }) => {
+const ButtonComp = ({
+  variant,
+  btntext,
+  buttonStyle,
+  logic,
+  svg,
+  classesSvg,
+}) => {
   return (
     <Button variant={variant} className={buttonStyle} onClick={logic}>
-      {btntext}
+      <Box className={`${classesSvg}`}>{svg}</Box>
+      <Box>{btntext}</Box>
     </Button>
-  )
-}
+  );
+};
 
 export default ButtonComp;
