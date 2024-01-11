@@ -6,7 +6,7 @@ import CurrentUserTable from "./UserTable/CurrentUserTable"
 
 const User = () => {
   return (
-    <Layout >
+    <Layout  >
       <CurrentUserTable/>
     </Layout>
   )
