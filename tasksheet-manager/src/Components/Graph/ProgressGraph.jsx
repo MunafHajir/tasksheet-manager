@@ -1,10 +1,12 @@
 import React from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-
+import { Box } from "@mui/material";
+import { createUseStyles } from "react-jss";
 const ProgressGraph = ({ timeline , progress}) => {
   return (
     <>
+  
     <HighchartsReact
       highcharts={Highcharts}
       options={{

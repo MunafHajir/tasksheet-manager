@@ -99,7 +99,7 @@ export default function PaticularUserProgessProjectDisplaySection({
         </Box>
       </Box>
       <Box className={classes.progressSection}>
-        <Box sx={{ marginLeft: "5%", fontWeight: "600", marginTop: "2%" }}>
+        <Box sx={{ marginLeft: "1.5%", fontWeight: "600", marginTop: "1%"  ,fontSize:"1.2rem"}}>
           <Typography variant="p">Progress of {PaticularUserName} </Typography>
         </Box>
         <Box>

@@ -12,7 +12,6 @@ const useStyles = createUseStyles({
     textAlign:"center",
     padding: "0 7rem 0 2rem",
     borderRadius: "2rem",
-    // marginBottom: ".5rem",
     marginLeft: ".5rem",
     cursor:"pointer"
   },

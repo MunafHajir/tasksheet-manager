@@ -16,7 +16,7 @@ const useStyles = createUseStyles({
 boxShadow:"0px 0px 5px -2px gray"
   },
   paticularUserName: {
-    fontSize: "1.8rem",
+    fontSize: "1.6rem",
     fontWeight:"600"
   },
   position: {
@@ -64,8 +64,8 @@ export default function PaticularUserPorjectSection() {
     <Box>
       <Box className={classes.PaticularUserPorjectSection}>
         <Typography variant="p" className={classes.paticularUserName}>
-          {"Subham Joshi"}
-          <span className={classes.position}>(UX/UI Designer)</span>
+          {"Shubham Joshi"}
+          <span className={classes.position}> (UX/UI Designer)</span>
         </Typography>
 
         <Box className="ProjectList">
