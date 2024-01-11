@@ -4,6 +4,7 @@ import HighchartsReact from "highcharts-react-official";
 
 const ProgressGraph = ({ timeline , progress}) => {
   return (
+    <>
     <HighchartsReact
       highcharts={Highcharts}
       options={{
@@ -70,6 +71,7 @@ const ProgressGraph = ({ timeline , progress}) => {
         ],
       }}
     />
+    </>
   );
 };
 

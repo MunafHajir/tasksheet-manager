@@ -8,9 +8,19 @@ import {
   TableCell,
   TableBody,
   Box,
-  Button,
 } from "@mui/material";
 import ButtonComp from "Components/Common/Button";
+import { createUseStyles } from "react-jss";
+
+const useStyle = createUseStyles({
+  buttonStyle: {
+    backgroundColor: "white",
+    color: "black"
+  },
+  svg:{
+    marginTop:"5px"
+  }
+});
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -25,15 +35,59 @@ const rows = [
 ];
 
 export default function PMTable() {
-  const customButtonStyles = {
-    backgroundColor: "white",
-    color: "black",
-  };
+  const classes = useStyle();
   return (
     <TableContainer component={Paper}>
       <Box display="flex" justifyContent="space-between" padding="10px">
         TaskWise ETA Allocations
-            <ButtonComp variant="contained" btntext="Export" style={customButtonStyles}>
+        <ButtonComp
+          variant="contained"
+          btntext="Export"
+          buttonStyle={classes.buttonStyle}
+          classesSvg={classes.svg}
+          svg={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M9.32031 6.50019L11.8803 3.94019L14.4403 6.50019"
+                fill="white"
+              />
+              <path
+                d="M9.32031 6.50019L11.8803 3.94019L14.4403 6.50019"
+                stroke="#242424"
+                stroke-width="1.5"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M11.8799 14.1803V4.01025"
+                stroke="#242424"
+                stroke-width="1.5"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M4 12.0002C4 16.4202 7 20.0002 12 20.0002C17 20.0002 20 16.4202 20 12.0002"
+                fill="white"
+              />
+              <path
+                d="M4 12.0002C4 16.4202 7 20.0002 12 20.0002C17 20.0002 20 16.4202 20 12.0002"
+                stroke="#242424"
+                stroke-width="1.5"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          }
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -41,11 +95,35 @@ export default function PMTable() {
             viewBox="0 0 24 24"
             fill="none"
           >
-            <path d="M9.32031 6.50019L11.8803 3.94019L14.4403 6.50019" fill="white"/>
-            <path d="M9.32031 6.50019L11.8803 3.94019L14.4403 6.50019" stroke="#242424" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M11.8799 14.1803V4.01025" stroke="#242424" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M4 12.0002C4 16.4202 7 20.0002 12 20.0002C17 20.0002 20 16.4202 20 12.0002" fill="white"/>
-            <path d="M4 12.0002C4 16.4202 7 20.0002 12 20.0002C17 20.0002 20 16.4202 20 12.0002" stroke="#242424" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path
+              d="M9.32031 6.50019L11.8803 3.94019L14.4403 6.50019"
+              fill="white"
+            />
+            <path
+              d="M9.32031 6.50019L11.8803 3.94019L14.4403 6.50019"
+              stroke="#242424"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M11.8799 14.1803V4.01025"
+              stroke="#242424"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M4 12.0002C4 16.4202 7 20.0002 12 20.0002C17 20.0002 20 16.4202 20 12.0002"
+              fill="white"
+            />
+            <path
+              d="M4 12.0002C4 16.4202 7 20.0002 12 20.0002C17 20.0002 20 16.4202 20 12.0002"
+              stroke="#242424"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </ButtonComp>
       </Box>

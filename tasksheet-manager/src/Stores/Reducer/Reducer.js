@@ -2,6 +2,7 @@
 
   const initalState = {
     reRendering: false,
+    ActiveProject: "",
   };
 
   export const Reducer = (state = initalState, action) => {
@@ -11,7 +12,11 @@
           ...state,
           reRendering: action.payload,
         };
-
+        case Action.ACTIVEPROJECT:
+          return {
+            ...state,
+            ActiveProject: action.payload
+          };
       default:
         return state;
     }
