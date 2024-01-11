@@ -98,7 +98,6 @@ export default function CustomizedTables() {
   return (
     <TableContainer component={Paper} className={classes.tablesection}>
       <Table className={classes.table} aria-label="customized table">
-    
         <TableHead className={classes.headingcell}>
           <TableRow>
             <StyledTableCell className={classes.headingcell}>
