@@ -4,10 +4,10 @@ import React from "react";
 
 const NewProjectUserList = ({label , userStyle}) => {
   return (
-    <div className={userStyle}>
+    <Box className={userStyle}>
       <Checkbox size="small"/>
       <InputLabelText varient={'p'} labelText={label} />
-    </div>
+    </Box>
   )
 };
 
