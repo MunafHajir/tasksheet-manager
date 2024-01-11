@@ -72,7 +72,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
     modulecell: {
       padding: "20px 24px",
-      width:"150px",
+      width:"200px",
     },
     etacell: {
       padding: "20px 24px",
