@@ -1,3 +1,5 @@
+
+import Layout from 'Layout'
 import React from 'react'
 // import Emaill from 'Containers/login/Emaill'
 
@@ -7,8 +9,10 @@ import React from 'react'
 const App = () => {
   return (
     <>
+      <Layout />
       {/* <Emaill/> */}
     </>
+
   )
 }
 
