@@ -47,10 +47,10 @@ const SelectBox = props => {
       >
         <Select
           sx={{
-            height: 40,
             overflow: "hidden",
           }}
           value={select}
+          className={props.selectHeight}
           onChange={handleChange}
           displayEmpty
           IconComponent={() => (

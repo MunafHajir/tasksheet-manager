@@ -5,13 +5,13 @@ const useStyle = createUseStyles({
   border: {
     height: "1px",
     background: "#ECECEC",
-    margin: "10px -24px",
+    // margin: "10px -24px",
   },
 });
 
-const Border = () => {
+const Border = (props) => {
   const classes = useStyle();
-  return <div className={classes.border}></div>;
+  return <div className={`${classes.border} ${props.borderWidth}`}></div>;
 };
 
 export default Border;

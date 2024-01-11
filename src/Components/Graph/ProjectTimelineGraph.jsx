@@ -54,14 +54,10 @@ const options = {
 };
 
 const ProjectTimelineGraph = () => {
-  const handleChart = (chart) => {
-    console.log(chart);
-  };
   return (
     <HighchartsReact
       highcharts={Highcharts}
       options={options}
-      callback={handleChart}
     />
   );
 };

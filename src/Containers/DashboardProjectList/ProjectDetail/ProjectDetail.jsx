@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import Border from "Components/Common/Border";
 import SearchBar from "Components/Common/SearchBar";
 import SelectBox from "Components/Common/SelectBox";
 import SupportingText from "Components/Common/SupportingText";
@@ -8,6 +9,7 @@ import PMTable from "Components/Table/PMTable";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { useNavigate, useParams } from "react-router-dom";
+import AddUser from "../AddUser/AddUser";
 
 const useStyle = createUseStyles({
   Back: {
@@ -92,17 +94,57 @@ const useStyle = createUseStyles({
   projectGap: {
     // display: "flex",
     // gap: "45px",
-    margin: "45px 0px",
-    width:"100%",
+    // margin: "45px 0px",
+    width: "100%",
     backgroundColor: "#fff",
   },
   graphGap: {
     display: "flex",
     flexDirection: "column",
   },
-  GraphWidth:{
-    padding:"20px",
-    backgroundColor:"#fff"
+  GraphWidth: {
+    padding: "20px",
+    backgroundColor: "#fff",
+    paddingBottom: "45px",
+  },
+  borderWidth: {
+    margin: "45px -20px",
+  },
+  UserContainer: {
+    padding: "15px 24px",
+    display: "flex",
+    gap: "12px",
+    borderRadius: "8px 8px 0px 0px",
+    borderTop: "1px solid #D6D6D6",
+    borderRight: "1px solid #D6D6D6",
+    borderLeft: "1px solid #D6D6D6",
+    background: "#F7FBFF",
+    alignItems: "center",
+  },
+  UserSupportingText: {
+    fontFamily: "Plus Jakarta Sans",
+    backgroundColor: "#DEEFFF",
+    color: "#0463D1",
+    fontSize: "16px",
+    fontWeight: "500",
+    borderRadius: "176px",
+    padding: "1.5px 16px",
+  },
+  Text: {
+    color: "#101828",
+    fontFamily: "Plus Jakarta Sans",
+    fontSize: "18px",
+    fontWeight: 500,
+    lineHeight: "28px",
+  },
+  flex: {
+    display: "flex",
+    justifyContent: 'center',
+    alignItems: "center",
+    gap: "20px",
+  },
+  selectHeight:{
+    height:"40px"
   }
 });
 
@@ -143,6 +185,15 @@ const ProjectDetail = () => {
     { value: "December" },
   ];
 
+  const UserData = [
+    { userName: "Master" },
+    { userName: "Pratik" },
+    { userName: "Omkar" },
+    { userName: "Vikas" },
+    { userName: "Shiv" },
+    { userName: "Hello" },
+  ];
+
   return (
     <>
       {/* <h1>hello</h1>
@@ -179,7 +230,7 @@ const ProjectDetail = () => {
         </Box>
       </Box>
 
-      <Box classname={classes.projectGap}>
+      <Box className={classes.projectGap}>
         <Box className={classes.Container}>
           <Box className={classes.textContainer}>
             <p className={classes.projectName}>{`${ProjectName} Dashboard`}</p>
@@ -195,6 +246,7 @@ const ProjectDetail = () => {
             title={"Select Stage Of Project"}
             ContainerWidth={classes.ContainerWidth}
             dropDownIconColor={"Black"}
+            selectHeight={classes.selectHeight}
           />
         </Box>
         <Box className={classes.graphGap}>
@@ -209,6 +261,7 @@ const ProjectDetail = () => {
                 ContainerWidth={classes.weekContainer}
                 classesP={classes.colorWhite}
                 dropDownIconColor={"white"}
+                selectHeight={classes.selectHeight}
               />
               <SelectBox
                 menuList={Month}
@@ -216,12 +269,49 @@ const ProjectDetail = () => {
                 ContainerWidth={classes.MonthContainer}
                 // classesP={classes.colorWhite}
                 dropDownIconColor={"black"}
+                selectHeight={classes.selectHeight}
               />
             </Box>
           </Box>
           <Box className={classes.GraphWidth}>
             <ProjectTimelineGraph />
+            <Border borderWidth={classes.borderWidth} />
           </Box>
+        </Box>
+        <Box className={classes.flex} >
+          <AddUser
+            UserContainer={classes.UserContainer}
+            title={<Text title={"Developers"} classes={classes.Text} />}
+            userCount={
+              <SupportingText
+                SupportingTitle={20}
+                classes={classes.UserSupportingText}
+              />
+            }
+            AddUserData={UserData}
+          />
+          <AddUser
+            UserContainer={classes.UserContainer}
+            title={<Text title={"Designer"} classes={classes.Text} />}
+            userCount={
+              <SupportingText
+                SupportingTitle={20}
+                classes={classes.UserSupportingText}
+              />
+            }
+            AddUserData={UserData}
+          />
+          <AddUser
+            UserContainer={classes.UserContainer}
+            title={<Text title={"Quality Assurance"} classes={classes.Text} />}
+            userCount={
+              <SupportingText
+                SupportingTitle={20}
+                classes={classes.UserSupportingText}
+              />
+            }
+            AddUserData={UserData}
+          />
         </Box>
       </Box>
       <PMTable />

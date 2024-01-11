@@ -1,10 +1,8 @@
 import React from 'react'
 import { createUseStyles } from 'react-jss'
 import { Box, CssBaseline } from '@mui/material'
-import { ClassNames } from '@emotion/react'
 import PaticularUserProgessProjectDisplaySection from './PaticularUser/PaticularUserSection/PaticularUserProgessProjectDisplaySection'
 import PaticularUserPorjectSection from './PaticularUser/PaticularUserSection/PaticularUserPorjectSection'
-import { Charts } from 'Components/Common/Chart';
 import ProgressGraph from 'Components/Graph/ProgressGraph'
 const useStyles =createUseStyles({
   chartContainer:{
@@ -23,7 +21,7 @@ export default function PaticularUserSection() {
   const classes =useStyles();
   return(
     <>
-      {/* <CssBaseline/> */}
+      <CssBaseline/>
     <Box>
       <PaticularUserPorjectSection/>
      <Box className={classes.chartContainer}>
