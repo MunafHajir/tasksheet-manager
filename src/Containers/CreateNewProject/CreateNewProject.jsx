@@ -255,7 +255,7 @@ const CreateNewProject = () => {
           </Box>
         </Box>
         <FormControlLabel
-        sx={{margin: }}
+        // sx={{margin: }}
           control={<Checkbox defaultChecked />}
           label="Is this a resource based project"
         />
