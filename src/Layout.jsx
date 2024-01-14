@@ -8,7 +8,7 @@ const useStyles = createUseStyles({
     width: "100%",
     padding: "30px 72px",
     background: "#F7FBFF",
-    minHeight: "90vh",
+    minHeight: "82vh",
   },
   
 });

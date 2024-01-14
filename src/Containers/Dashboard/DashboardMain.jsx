@@ -1,3 +1,150 @@
+import { Box, CssBaseline } from "@mui/material";
+import Nav from "Components/Nav/Nav";
+import React, { useState } from "react";
+import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
+
+const useStyle = createUseStyles({
+  DasboardMain: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: "56px",
+    padding: "0 72px",
+    borderTop: "0.2px solid #E3E3E3",
+    borderBottom: "0.2px solid #E3E3E3",
+    boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
+  },
+  width: {
+    width: "170px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  creteProjectWidth: {
+    width: "232px",
+    display: "flex",
+    color: "#0463D1",
+    justifyContent: "center",
+    height: "56px",
+  },
+  flex: {
+    display: "flex",
+    padding: "15px",
+    justifyContent: "center",
+  },
+  activeLink: {
+    color: "#828080",
+    textDecoration: "none",
+    height: "56px",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  actLink: {
+    color: "#0463D1",
+    textDecoration: "none",
+    height: "56px",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  focusedTab: {
+    width: "100%",
+    fontWeight:"600",
+    display: "flex",
+    justifyContent: "center",
+    height: "100%",
+    borderBottom: "3px solid #0463D1",
+    color: "#0463D1",
+    // padding:'15px 0',
+    alignItems: "center",
+    textDecoration: "none",
+  },
+});
+
+const DashboardMain = () => {
+  const classes = useStyle();
+  const [currentTab, setCurrentTab] = useState("Dashboard");
+  const handleFocus = tab => {
+    setCurrentTab(`${tab}`);
+  };
+  return (
+    <>
+      <CssBaseline />
+      <Nav />
+      <Box className={classes.DasboardMain}>
+        <Box className={classes.flex}>
+          <Box
+            className={classes.width}
+            onClick={() => handleFocus("Dashboard")}
+          >
+            <Link
+              to="/"
+              className={
+                currentTab === "Dashboard"
+                  ? classes.focusedTab
+                  : classes.activeLink
+              }
+            >
+              Dashboard
+            </Link>
+          </Box>
+          <Box
+            className={classes.width}
+            onClick={() => handleFocus("UserList")}
+          >
+            <Link
+              to="/UserList"
+              className={
+                currentTab === "UserList"
+                  ? classes.focusedTab
+                  : classes.activeLink
+              }
+            >
+              UserList
+            </Link>
+          </Box>
+          <Box
+            className={classes.width}
+            onClick={() => handleFocus("ProjectList")}
+          >
+            <Link
+              to="/ProjectList"
+              className={
+                currentTab === "ProjectList"
+                  ? classes.focusedTab
+                  : classes.activeLink
+              }
+            >
+              ProjectList
+            </Link>
+          </Box>
+        </Box>
+        <Box
+          className={classes.creteProjectWidth}
+          onClick={() => handleFocus("Create New Project")}
+        >
+          <Link
+            to="/CreateNewProject"
+            className={
+              currentTab === "Create New Project"
+                ? classes.focusedTab
+                : classes.actLink
+            }
+          >
+            + Create New Project
+          </Link>
+        </Box>
+      </Box>
+    </>
+  );
+};
+
+export default DashboardMain;
+
 // import React from "react";
 // import { CssBaseline } from "@mui/material";
 // import PropTypes from "prop-types";
@@ -149,151 +296,3 @@
 // };
 
 // export default DashboardMain;
-
-import { Box, CssBaseline } from "@mui/material";
-import React, { useState } from "react";
-import { createUseStyles } from "react-jss";
-import { Link } from "react-router-dom";
-
-
-
-
-const useStyle = createUseStyles({
-  DasboardMain: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    height: "56px",
-    padding: "0 72px",
-    borderTop: "0.2px solid #4F4F4F",
-    borderBottom: "0.2px solid #4F4F4F",
-    boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
-  },
-  width: {
-    width: "170px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  creteProjectWidth: {
-    width: "232px",
-    display: "flex",
-    color: "#0463D1",
-    justifyContent: "center",
-    height: "56px",
-  },
-  flex: {
-    display: "flex",
-    padding: "15px",
-    justifyContent: "center",
-  },
-  activeLink: {
-    color: "#828080",
-    textDecoration: "none",
-    height: "56px",
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  actLink:{
-    color: "#0463D1",
-    textDecoration: "none",
-    height: "56px",
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  focusedTab: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    height: "100%",
-    borderBottom: "3px solid #0463D1",
-    color: "#0463D1",
-    // padding:'15px 0',
-    alignItems: "center",
-    textDecoration: "none",
-  },
-});
-
-const DashboardMain = () => {
-  const classes = useStyle();
-  const [currentTab, setCurrentTab] = useState("Dashboard");
-  const handleFocus = tab => {
-    setCurrentTab(`${tab}`);
-  };
-  return (
-    <>
-      <CssBaseline />
-      <Box className={classes.DasboardMain}>
-        <Box className={classes.flex}>
-          <Box
-            className={classes.width}
-            onClick={() => handleFocus("Dashboard")}
-          >
-            <Link
-              to="/"
-              className={
-                currentTab === "Dashboard"
-                  ? classes.focusedTab
-                  : classes.activeLink
-              }
-            >
-              Dashboard
-            </Link>
-          </Box>
-          <Box
-            className={classes.width}
-            onClick={() => handleFocus("UserList")}
-          >
-            <Link
-              to="/UserList"
-              className={
-                currentTab === "UserList"
-                  ? classes.focusedTab
-                  : classes.activeLink
-              }
-            >
-              UserList
-            </Link>
-          </Box>
-          <Box
-            className={classes.width}
-            onClick={() => handleFocus("ProjectList")}
-          >
-            <Link
-              to="/ProjectList"
-              className={
-                currentTab === "ProjectList"
-                  ? classes.focusedTab
-                  : classes.activeLink
-              }
-            >
-              ProjectList
-            </Link>
-          </Box>
-        </Box>
-        <Box
-          className={classes.creteProjectWidth}
-          onClick={() => handleFocus("Create New Project")}
-        >
-          <Link
-            to="/CreateNewProject"
-            className={
-              currentTab === "Create New Project"
-                ? classes.focusedTab
-                : classes.actLink
-            }
-          >
-            + Create New Project
-          </Link>
-        </Box>
-      </Box>
-   
-    </>
-  );
-};
-
-export default DashboardMain;
