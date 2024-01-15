@@ -8,11 +8,12 @@ const ButtonComp = ({
   logic,
   svg,
   classesSvg,
+  btnTextStyle,
 }) => {
   return (
     <Button variant={variant} className={buttonStyle} onClick={logic}>
       <Box className={`${classesSvg}`}>{svg}</Box>
-      <Box>{btntext}</Box>
+      <Box className={`${btnTextStyle}`}>{btntext}</Box>
     </Button>
   );
 };
