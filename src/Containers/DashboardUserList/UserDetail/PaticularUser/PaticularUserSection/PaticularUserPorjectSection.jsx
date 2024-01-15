@@ -6,6 +6,7 @@ import { ProjectList } from "./ProjectList";
 import { useDispatch } from "react-redux";
 import { ActiveProject } from "Stores/Action/Action";
 import ModalComp from "Components/Common/Model";
+import ModelSelection from "Components/Common/ModelSelection";
 
 const useStyles = createUseStyles({
   PaticularUserPorjectSection: {
@@ -13,11 +14,17 @@ const useStyles = createUseStyles({
     backgroundColor: "white",
     borderRadius: ".5rem",
     position: "relative",
-boxShadow:"0px 0px 5px -2px gray"
+    boxShadow: "0px 0px 5px -2px gray",
+  },
+  ProjectList:{
+    display:"flex",
+    justifyContent:"space-between",
+    alignItems:"center",
+    
   },
   paticularUserName: {
     fontSize: "1.6rem",
-    fontWeight:"600"
+    fontWeight: "600",
   },
   position: {
     fontSize: ".7em",
@@ -30,7 +37,7 @@ boxShadow:"0px 0px 5px -2px gray"
 });
 export default function PaticularUserPorjectSection() {
   const dispatch = useDispatch();
-//  const getFirstProject = useSelector((state)=>state.Reducer.ActiveProject);
+  //  const getFirstProject = useSelector((state)=>state.Reducer.ActiveProject);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -40,14 +47,13 @@ export default function PaticularUserPorjectSection() {
   useEffect(() => {
     dispatch(ActiveProject(activeProject));
   }, [activeIndex]);
- 
+
   const toggleButton = (index, projectName) => {
     setActiveIndex(index === activeIndex ? 0 : index);
     setActiveProject(projectName);
   };
 
   const projects = projectLists.map((item, index) => {
-
     const isActive = index === activeIndex;
     return (
       <ProjectBox
@@ -68,24 +74,35 @@ export default function PaticularUserPorjectSection() {
           <span className={classes.position}> (UX/UI Designer)</span>
         </Typography>
 
-        <Box className="ProjectList">
+        <Box className={classes.ProjectList}>
+          <Box>
           {projects}
+          </Box>
+          <Box>
           <Button
             variant="outlined"
-            sx={{
-              padding: ".5rem 1rem",
-              border: "2px solid #0463D1",
-              marginLeft: "5%",
-              fontWeight: "600",
-              fontSize: ".8rem",
-              position:"absolute",
-              right: "4rem",
-              top: "4.8rem",
-              borderRadius: ".5rem",
-            }}onClick={handleOpen} >
+            // sx={{
+            //   padding: ".5rem 1rem",
+            //   border: "2px solid #0463D1",
+            //   marginLeft: "5%",
+            //   fontWeight: "600",
+            //   fontSize: ".8rem",
+            //   position: "absolute",
+            //   right: "4rem",
+            //   top: "4.8rem",
+            //   borderRadius: ".5rem",
+            // }}
+            onClick={handleOpen}
+          >
             {"+ Add Project"}
-          </Button>
-          <ModalComp open={open} setOpen={setOpen} paticularUserName={"Shubham "}/>
+          </Button>  
+          <ModalComp
+            open={open}
+            setOpen={setOpen}
+            paticularUserName={"Shubham "}
+          />
+          {/* <ModelSelection  children={"hello"}/> */}
+          </Box>
         </Box>
       </Box>
     </Box>

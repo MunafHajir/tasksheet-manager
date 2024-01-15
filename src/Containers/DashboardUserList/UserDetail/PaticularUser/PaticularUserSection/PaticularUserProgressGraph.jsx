@@ -1,9 +1,6 @@
 import {
   Box,
-  FormControl,
-  FormHelperText,
   MenuItem,
-  Select,
   Typography,
 } from "@mui/material";
 import ProgressGraph from "Components/Graph/ProgressGraph";
