@@ -1,3 +1,5 @@
+import Emaill from "Containers/login/Auth";
+import UserFlowDashboard from "Pages/User_Pages/UserFlowDashboard";
 import CreateNewProject from "Containers/CreateNewProject/CreateNewProject";
 import Dashboard from "Containers/Dashboard/Dashboard";
 import DashboardProjectList from "Containers/DashboardProjectList/DashboardProjectList";
@@ -25,6 +27,11 @@ const App = () => {
           <Route path="/CreateNewProject" element={<CreateNewProject />} />
         </Routes>
       </Layout>
+
+      <Routes>
+        <Route path="/" element={<Emaill />}/>
+        <Route path="/User-Dashboard" element={<UserFlowDashboard />}/>
+      </Routes>
     </>
   );
 };
