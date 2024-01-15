@@ -85,11 +85,13 @@ const useStyles = createUseStyles({
   },
   table: {
     width: "87vw",
+    backgroundColor:"transparent",
   },
   tablesection: {
     boxShadow: "none",
     display: "flex",
     justifyContent: "center",
+    backgroundColor:"transparent",
   },
 });
 

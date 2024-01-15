@@ -2,13 +2,44 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { useState } from 'react';
+import { createUseStyles } from 'react-jss';
+
+const myStyle= createUseStyles({
+    Card:{
+        minWidth: "11vw",
+        maxWidth: "14vw",
+        maxHeight: "5vh",
+        maxHeight:"7vh",
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center"        
+    },    
+    contents: {
+        display: 'flex',
+        justifyContent:"center",
+        alignItems:"center",  
+        minHeight:"5vh" ,
+        maxHeight:"7vh",
+        gap:"0.8vw"
+
+    } ,
+    datecontainer:{
+      display:"flex",
+      justifyContent:"center",
+      width:"6vw"
+    },
+    date:{
+         fontSize: '1vw' ,  
+         color: "var(--Blue, #0463D1)",
+    }
+})
 
 
 export default function UserDate() {
     // State to keep track of the displayed date
     const [displayedDate, setDisplayedDate] = useState(new Date());
-
-
+    const classes = myStyle()
+    
     const handleLeftChevronClick = () => {
         const previousDate = new Date(displayedDate);
         previousDate.setDate(displayedDate.getDate() - 1);
@@ -21,25 +52,19 @@ export default function UserDate() {
         setDisplayedDate(nextDate);
     };
     
-    const myStyle = {
-        contents: {
-            display: "flex",
-            justifyContent: "center",
-            alignItem: "center"
-        }
-    }
+    
 
     const isLeftChevronDisabled = displayedDate <= new Date();
     const isRightChevronDisabled = displayedDate.getDate() >= new Date().getDate() + 2;
 
     return (
-        <Card sx={{ minWidth: 200, maxWidth: 80, maxHeight: 50 }}>
-            <CardContent style={myStyle.contents}>
+        <Card className={classes.Card}>
+            <div className={classes.contents}>
                 {/* Left Chevron */}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                    width="15"
+                    height="15"
                     viewBox="0 0 20 20"
                     fill="none"
                     onClick={handleLeftChevronClick}
@@ -56,15 +81,18 @@ export default function UserDate() {
                 </svg>
 
                 {/* Displayed Date */}
-                <div style={{ margin: '0 10px', fontSize: '16px' , }}>
+                <div className={classes.datecontainer}>
+                    <p className={classes.date}>
+
                     {`${displayedDate.toLocaleString('default', { month: 'short' })},${displayedDate.getDate()} ${displayedDate.toLocaleString('default', { weekday: 'short' })}`}
+                    </p>
                 </div>
 
                 {/* Right Chevron */}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
+                     width="15"
+                    height="15"
                     viewBox="0 0 20 20"
                     fill="none"
                     onClick={handleRightChevronClick}
@@ -79,7 +107,7 @@ export default function UserDate() {
                         stroke-linejoin="round"
                     />
                 </svg>
-            </CardContent>
+            </div>
         </Card>
     );
 

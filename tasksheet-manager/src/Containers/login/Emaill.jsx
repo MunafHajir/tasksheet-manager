@@ -2,8 +2,7 @@ import React from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import { alpha, styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import lock from "../Assets/Login.jpg"
-
+import loginimg from "../Assets/loginimg.png"
 import FormControl from '@mui/material/FormControl';
 import {
   CssBaseline,
@@ -18,7 +17,7 @@ import {
 
 } from '@mui/material';
 import { createUseStyles } from 'react-jss';
-import { Email } from '@mui/icons-material';
+// import { Email } from '@mui/icons-material';
 
 const theme = createTheme({
   typography: {
@@ -40,8 +39,9 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     border: '1px solid',
     borderColor: theme.palette.mode === 'light' ? '#E0E3E7' : '#2D3843',
     fontSize: 16,
-    width: 'auto',
+    width: '38vw',
     padding: '10px 12px',
+    marginBottom:"20px",
     transition: theme.transitions.create([
       'border-color',
       'background-color',
@@ -83,7 +83,6 @@ const useStyles = createUseStyles((theme) => ({
     textAlign: 'center',
     marginBottom: 30,
     marginRight: 150,
-
   },
   textField: {
     marginTop: 2,
@@ -91,6 +90,9 @@ const useStyles = createUseStyles((theme) => ({
   },
   button: {
     marginTop: 2,
+    width: '40vw',
+    marginTop: '10px',
+    padding: '8px',
   },
 
 
@@ -144,7 +146,7 @@ const Emaill = () => {
         <CssBaseline />
         <Container maxWidth="xl" style={styles.container}>
           <div style={styles.imageContainer}>
-            <img src={lock} style={styles.image} alt='Lock' />
+            <img src={loginimg} style={styles.image} alt='LoginImg' />
           </div>
           <div style={styles.loginContainer}>
             <Card className={classes.card}>
@@ -158,19 +160,16 @@ const Emaill = () => {
                 <InputLabel shrink htmlFor="bootstrap-input" style={styles.label}>
                   Email address
                 </InputLabel >
-                <BootstrapInput placeholder="Enter your email address" id="bootstrap-input" sx={{ width: '500px', marginBottom: '20px' }} />
+                <BootstrapInput placeholder="Enter your email address" id="bootstrap-input"  />
 
                 <Button
                   variant="contained"
                   color="primary"
                   className={classes.button}
-                  sx={{
-                    width: '500px',
-                    marginTop: '100px',
-                    padding: '8px'
-                  }}
-
-
+                  // sx={{
+                  //   marginTop: '100px',
+                  //   padding: '8px'
+                  // }}
                 >
                   send OTP
                 </Button>
