@@ -46,11 +46,11 @@ export default function UserDate() {
         setDisplayedDate(previousDate);
     };
 
-    const handleRightChevronClick = () => {
-        const nextDate = new Date(displayedDate);
-        nextDate.setDate(displayedDate.getDate() + 1);
-        setDisplayedDate(nextDate);
-    };
+    // const handleRightChevronClick = () => {
+    //     const nextDate = new Date(displayedDate);
+    //     nextDate.setDate(displayedDate.getDate() + 1);
+    //     setDisplayedDate(nextDate);
+    // };
     
     
 
@@ -95,7 +95,7 @@ export default function UserDate() {
                     height="15"
                     viewBox="0 0 20 20"
                     fill="none"
-                    onClick={handleRightChevronClick}
+                    // onClick={handleRightChevronClick}
                     style={{ cursor: isRightChevronDisabled ? 'not-allowed' : 'pointer', opacity: isRightChevronDisabled ? 0.5 : 1 }}
                 >
                     <path

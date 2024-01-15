@@ -106,7 +106,7 @@ const useStyles = createUseStyles({
   },
 });
 
-export default function CustomizedTables() {
+export default function CurrentUserTable() {
   const classes = useStyles();
   return (
     <TableContainer component={Paper} className={classes.tablesection}>

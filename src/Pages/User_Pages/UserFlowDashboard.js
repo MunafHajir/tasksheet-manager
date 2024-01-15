@@ -3,6 +3,7 @@ import Navbar from "./User-Header-Footer/Navbar";
 import TaskList from "./User-Header-Footer/TaskList";
 import Footer from "./User-Header-Footer/Footer";
 import { createUseStyles } from "react-jss";
+import CurrentUserTable from "./UserTable/CurrentUserTable";
 
 const useStyles = createUseStyles({
   layoutcontainer: {
@@ -12,18 +13,18 @@ const useStyles = createUseStyles({
   },
 });
 
-const Layout = ({ children }) => {
+const UserFlowDashboard = ({ children }) => {
   const classes = useStyles();
   return (
     <div>
       <div className={classes.layoutcontainer}>
         <Navbar />
         <TaskList />
-        {children}
+        <CurrentUserTable />
         <Footer />
       </div>
     </div>
   );
 };
 
-export default Layout;
+export default UserFlowDashboard;
