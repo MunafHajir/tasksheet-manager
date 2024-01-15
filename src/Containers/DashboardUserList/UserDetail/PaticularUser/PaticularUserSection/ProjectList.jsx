@@ -1,0 +1,22 @@
+export const ProjectList =[
+    {
+        "projectName":"GetCredit",
+    }
+    ,
+    {
+        "projectName":"Turf",
+    }
+    ,
+    {
+        "projectName":"TaskSheet",
+    }
+    ,
+    {
+        "projectName":"ReportGen",
+    }
+    ,
+    {
+        "projectName":"BKC",
+    }
+    ,
+]
