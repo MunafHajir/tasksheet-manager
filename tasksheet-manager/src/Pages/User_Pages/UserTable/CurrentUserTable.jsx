@@ -94,7 +94,6 @@ const useStyles = createUseStyles({
     padding: "20px 24px ",
     width: "165px",
   },
-<<<<<<< Updated upstream
   table: {
     width: "87vw",
     backgroundColor:"transparent",
@@ -105,8 +104,6 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     backgroundColor:"transparent",
   },
-=======
->>>>>>> Stashed changes
 });
 
 export default function CustomizedTables() {
