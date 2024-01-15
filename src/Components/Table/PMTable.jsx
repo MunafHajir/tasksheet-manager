@@ -38,6 +38,7 @@ export default function PMTable() {
   const classes = useStyle();
   return (
     <TableContainer component={Paper}>
+    {/* <Box> */}
       <Box display="flex" justifyContent="space-between" padding="10px">
         TaskWise ETA Allocations
         <ButtonComp
@@ -154,6 +155,7 @@ export default function PMTable() {
           ))}
         </TableBody>
       </Table>
+    {/* <Box/> */}
     </TableContainer>
   );
 }

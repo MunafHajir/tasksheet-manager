@@ -14,11 +14,10 @@ const useStyles = createUseStyles({
   },
   flex: {
     display: "flex",
-    justifyContent: "flex-start",
+    justifyContent: "space-evenly",
     alignItems: "center",
     gap: "16px",
     flexWrap: "wrap",
-    marginTop: "16px",
     width:'100%'
   },
 });
