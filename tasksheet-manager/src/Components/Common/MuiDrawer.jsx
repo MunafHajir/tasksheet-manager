@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
-import MuiButton from "./Common/MuiButton";
+import MuiButton from "./MuiButton";
 import CloseIcon from "@mui/icons-material/Close";
 import TextField from "@mui/material/TextField";
 import Container from "@mui/material/Container";
