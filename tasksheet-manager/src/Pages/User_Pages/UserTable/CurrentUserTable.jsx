@@ -8,10 +8,12 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { createUseStyles } from "react-jss";
-import Button from "../../../Components/Common/MuiButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import MuiButton from "../../../Components/Common/MuiButton";
+// import MuiDrawer from "Components/MuiDrawer";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  fontFamily: "Plus Jakarta Sans",
   [`&.${tableCellClasses.head}`]: {
     color: theme.palette.common.black,
   },
@@ -22,6 +24,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   // hide last border
+
   "&:last-child td, &:last-child th": {
     border: 0,
   },
@@ -65,6 +68,14 @@ const rows = [
 ];
 
 const useStyles = createUseStyles({
+  table: {
+    width: "87vw",
+  },
+  tablesection: {
+    boxShadow: "none",
+    display: "flex",
+    justifyContent: "center",
+  },
   headingcell: {
     padding: "12px 24px",
     backgroundColor: "#DCECFE",
@@ -83,6 +94,7 @@ const useStyles = createUseStyles({
     padding: "20px 24px ",
     width: "165px",
   },
+<<<<<<< Updated upstream
   table: {
     width: "87vw",
     backgroundColor:"transparent",
@@ -93,6 +105,8 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     backgroundColor:"transparent",
   },
+=======
+>>>>>>> Stashed changes
 });
 
 export default function CustomizedTables() {
@@ -128,17 +142,19 @@ export default function CustomizedTables() {
               </StyledTableCell>
               <StyledTableCell className={classes.tabcell} align="left">
                 {row.task}
+                {/* <MuiDrawer tasks={row.task}/> */}
               </StyledTableCell>
               <StyledTableCell className={classes.etacell} align="left">
                 {row.eta}
               </StyledTableCell>
               <StyledTableCell align="left" className={classes.statuscell}>
-                <Button
+                <MuiButton
                   btnsize="small"
                   variant="outlined"
                   btnheading="In progress"
                   btnprops={{
                     textTransform: "capitalize",
+                    fontFamily: "Plus Jakarta Sans",
                   }}
                   btnicon={<KeyboardArrowDownIcon />}
                 />

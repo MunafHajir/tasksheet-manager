@@ -1,8 +1,17 @@
 import React from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { createUseStyles } from "react-jss";
+
+const useStyles = createUseStyles({
+  menuitem_col: {
+    fontFamily: "Plus Jakarta Sans",
+  },
+});
 
 export default function MuiMenuItem({ anchorEl, open, onClose, menuprops }) {
+  const classes = useStyles();
+
   const [status, setStatus] = React.useState("");
 
   const handleClose = (selectedStatus) => {
@@ -22,10 +31,18 @@ export default function MuiMenuItem({ anchorEl, open, onClose, menuprops }) {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={() => handleClose("In progress")}>
+        <MenuItem
+          className={classes.menuitem_col}
+          onClick={() => handleClose("In progress")}
+        >
           In progress
         </MenuItem>
-        <MenuItem onClick={() => handleClose("Completed")}>Completed</MenuItem>
+        <MenuItem
+          className={classes.menuitem_col}
+          onClick={() => handleClose("Completed")}
+        >
+          Completed
+        </MenuItem>
       </Menu>
     </div>
   );
