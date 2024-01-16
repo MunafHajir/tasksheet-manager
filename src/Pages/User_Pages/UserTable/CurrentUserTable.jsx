@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 import { createUseStyles } from "react-jss";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MuiButton from "../../../Components/Common/MuiButton";
-// import MuiDrawer from "Components/MuiDrawer";
+import MuiDrawer from "../../../Components/Common/MuiDrawer";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   fontFamily: "Plus Jakarta Sans",
@@ -30,8 +30,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(modulename, task, eta, carbs, protein) {
-  return { modulename, task, eta, carbs, protein };
+function createData(modulename, task, eta) {
+  return { modulename, task, eta };
 }
 
 const rows = [
@@ -65,24 +65,30 @@ const rows = [
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, laborum?",
     ""
   ),
+  createData(
+    "",
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, laborum?",
+    ""
+  ),
 ];
 
 const useStyles = createUseStyles({
   table: {
-    width: "87vw",
+   
   },
   tablesection: {
+    padding:"0px 100px",
     boxShadow: "none",
     display: "flex",
     justifyContent: "center",
+    
   },
   headingcell: {
-    padding: "12px 24px",
     backgroundColor: "#DCECFE",
   },
   modulecell: {
     padding: "20px 24px",
-    width: "200px",
+    width: "220px"
   },
   etacell: {
     padding: "20px 24px",
@@ -92,17 +98,13 @@ const useStyles = createUseStyles({
   },
   statuscell: {
     padding: "20px 24px ",
-    width: "165px",
+    width: "195px",
   },
-  table: {
-    width: "87vw",
-    backgroundColor:"transparent",
-  },
-  tablesection: {
-    boxShadow: "none",
-    display: "flex",
-    justifyContent: "center",
-    backgroundColor:"transparent",
+  hoverEffect: {
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: '#EFF6FF', 
+    },
   },
 });
 
@@ -131,13 +133,13 @@ export default function CurrentUserTable() {
           {rows.map((row) => (
             <StyledTableRow key={row.modulename}>
               <StyledTableCell
-                className={classes.modulecell}
+                className={classes.modulecell} 
                 component="th"
                 scope="row"
               >
                 {row.modulename}
               </StyledTableCell>
-              <StyledTableCell className={classes.tabcell} align="left">
+              <StyledTableCell className={`${classes.tabcell} ${classes.hoverEffect}`} align="left">
                 {row.task}
                 {/* <MuiDrawer tasks={row.task}/> */}
               </StyledTableCell>
@@ -145,13 +147,14 @@ export default function CurrentUserTable() {
                 {row.eta}
               </StyledTableCell>
               <StyledTableCell align="left" className={classes.statuscell}>
-                <MuiButton
+              <MuiButton
                   btnsize="small"
                   variant="outlined"
-                  btnheading="In progress"
+                  btnheading="Select Status"
                   btnprops={{
                     textTransform: "capitalize",
                     fontFamily: "Plus Jakarta Sans",
+                      
                   }}
                   btnicon={<KeyboardArrowDownIcon />}
                 />

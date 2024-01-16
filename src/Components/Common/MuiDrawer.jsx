@@ -35,7 +35,7 @@ export default function MuiDrawer({ tasks }) {
         sx={{
           width: "100%",
           padding: "20px 24px",
-          backgroundColor: "blue",
+          backgroundColor: "#004596",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -56,7 +56,7 @@ export default function MuiDrawer({ tasks }) {
             color: "#fff",
             border: "2px solid #fff",
             borderRadius: "50%",
-            height: "50px", // Updated height
+            height: "50px", 
           }}
           // onClose={toggleDrawer(anchor, false)}
           btnicon={<CloseIcon fontSize="small" sx={{ width: "20px" }} />}

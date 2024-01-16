@@ -6,6 +6,7 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   menuitem_col: {
     fontFamily: "Plus Jakarta Sans",
+    width:"145px",
   },
 });
 
