@@ -38,7 +38,6 @@ export default function MuiButton({
 
       <MuiMenuItem
         menuprops={{
-          width: "100vw",
           margin: "10px 0",
           fontFamily: "Plus Jakarta Sans",
         }}
