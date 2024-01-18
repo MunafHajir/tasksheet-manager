@@ -15,6 +15,8 @@ import { ProjectList } from "./ProjectList";
 import { useDispatch, useSelector } from "react-redux";
 import { ActiveProject } from "Stores/Action/Action";
 import ModelSelection from "Components/Common/ModelSelection";
+import ModalComp from "Components/Common/Model";
+import Text from "Components/Common/Text";
 import ButtonComp from "Components/Common/Button";
 
 const useStyles = createUseStyles({
@@ -34,13 +36,34 @@ const useStyles = createUseStyles({
     fontSize: "1.6rem",
     fontWeight: "600",
   },
+  paticularUserName: {
+    fontSize: "20px",
+    fontWeight: "600",
+    cursor: "pointer",
+  },
   position: {
-    fontSize: ".7em",
-    color: "gray",
+    color: "#828282",
+    fontSize: "20px",
+    fontWeight: 600,
+    lineHeight: "28px",
+  },
+  Flex: {
+    display: "flex",
+    alignItems: "center",
+    gap: "5px",
+  },
+  ParticularProject: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   active: {
     backgroundColor: "#0463D1",
     color: "white",
+    fontFamily: "Plus Jakarta Sans",
+    cursor: "pointer",
+    fontWeight: "600",
+    color: "#fff",
   },
   style: {
     position: "absolute",
@@ -89,11 +112,33 @@ const useStyles = createUseStyles({
     marginTop: "1.2rem",
     cursor: "pointer",
   },
+  Button: {
+    padding: ".5rem 1rem",
+    border: "1px solid #0463D1",
+    fontWeight: "500",
+    fontSize: ".8rem",
+    borderRadius: "8px",
+    padding: "12px 24px",
+  },
+  btnText: {
+    color: "#0463D1",
+    fontFamily: "Plus Jakarta Sans",
+    fontSize: "16px",
+    fontStyle: "normal",
+    fontWeight: 500,
+    lineHeight: "normal",
+    textTransform: "capitalize",
+  },
+  margin: {
+    marginTop: "20px",
+  },
 });
 export default function PaticularUserPorjectSection() {
-  const dispatch = useDispatch();
-  const getFirstProject = useSelector((state) => state.Reducer.ActiveProject);
+  const classes = useStyles();
+  const getFirstProject = useSelector(state => state.Reducer.ActiveProject);
 
+  const dispatch = useDispatch();
+  //  const getFirstProject = useSelector((state)=>state.Reducer.ActiveProject);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
 
@@ -101,7 +146,6 @@ export default function PaticularUserPorjectSection() {
   const [activeProject, setActiveProject] = useState("GetCredit");
 
   const [project, setProject] = React.useState("");
-  const classes = useStyles();
   const projectLists = ProjectList;
 
   useEffect(() => {
@@ -127,7 +171,7 @@ export default function PaticularUserPorjectSection() {
     );
   });
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setProject(event.target.value);
   };
 
@@ -151,7 +195,7 @@ export default function PaticularUserPorjectSection() {
 
   return (
     <Box>
-      <Box className={classes.PaticularUserPorjectSection}>
+      {/* <Box className={classes.PaticularUserPorjectSection}>
         <Typography variant="p" className={classes.paticularUserName}>
           {"Shubham Joshi"}
           <span className={classes.position}> (UX/UI Designer)</span>
@@ -163,7 +207,7 @@ export default function PaticularUserPorjectSection() {
               {"+ Add Project"}
             </Button>
 
-            {/* <Box className={classes.AssignProjecSection}>      */}
+            <Box className={classes.AssignProjecSection}>     
             <ModelSelection
               open={open}
               setOpen={setOpen}
@@ -217,9 +261,29 @@ export default function PaticularUserPorjectSection() {
                 </>
               }
             />
-          </Box>
-        </Box>
+          </Box> */}
+      <Box className={classes.Flex}>
+        <Text classes={classes.paticularUserName} title={"Shubham Joshi"} />
+        <Text classes={classes.position} title={"(UX/UI Designer)"} />
       </Box>
+
+      <Box className={`${"ProjectList"} ${classes.margin}`}>
+        <Box className={classes.ParticularProject}>
+          <Box className={classes.Flex}>{projects}</Box>
+          <ButtonComp
+            btnTextStyle={classes.btnText}
+            buttonStyle={classes.Button}
+            logic={handleOpen}
+            btntext={"+ Assign Project"}
+          />
+        </Box>
+        <ModalComp
+          open={open}
+          setOpen={setOpen}
+          paticularUserName={"Shubham "}
+        />
+      </Box>
+      {/* </Box> */}
       {/* </Box> */}
     </Box>
   );

@@ -1,5 +1,6 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import SearchBar from "Components/Common/SearchBar";
+import Text from "Components/Common/Text";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { useNavigate } from "react-router-dom";
@@ -16,17 +17,25 @@ const useStyles = createUseStyles({
   },
   backSection: {
     display: "flex",
-    justifyContent: "flex-start",
     alignItems: "center",
-    width: "100%",
+    gap: "16px",
+    // width: "100%",
   },
   backSvg: {
-    marginTop: ".5rem",
-    marginRight: "2rem",
     cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
   },
-  searchBox:{
-    flexBasis:"15rem",
+  searchBox: {
+    width: "25vw",
+    padding: "13px",
+    //  paddingRight:"10rem"
+  },
+  Text: {
+    color: "#101828",
+    fontFamily: "Plus Jakarta Sans",
+    fontSize: "16px",
+    fontWeight: 500,
   },
   Border:{
     backgroundColor:"white",
@@ -35,10 +44,10 @@ const useStyles = createUseStyles({
 });
 export default function BackAndSearchSection() {
   const navigator = useNavigate();
-    const classes = useStyles();
-    const handleBack =()=>{
-        navigator("/UserList")
-    }
+  const classes = useStyles();
+  const handleBack = () => {
+    navigator(-1);
+  };
   return (
     <Box className={classes.BackAndSearchSection}>
       <Box className={classes.backSection}>
@@ -58,16 +67,17 @@ export default function BackAndSearchSection() {
               d="M5.56038 12L11.7809 18.219C11.9217 18.3598 12.0008 18.5508 12.0008 18.75C12.0008 18.9491 11.9217 19.1401 11.7809 19.281C11.64 19.4218 11.449 19.5009 11.2499 19.5009C11.0507 19.5009 10.8597 19.4218 10.7189 19.281L3.96888 12.531C3.89903 12.4613 3.84362 12.3785 3.80581 12.2874C3.768 12.1963 3.74854 12.0986 3.74854 12C3.74854 11.9013 3.768 11.8036 3.80581 11.7125C3.84362 11.6214 3.89903 11.5386 3.96888 11.469L10.7189 4.71897C10.8597 4.57814 11.0507 4.49902 11.2499 4.49902C11.449 4.49902 11.64 4.57814 11.7809 4.71897C11.9217 4.8598 12.0008 5.05081 12.0008 5.24997C12.0008 5.44913 11.9217 5.64014 11.7809 5.78097L5.56038 12Z"
               fill="black"
             />
+            xcvb
           </svg>
         </Box>
-        <Box>
-          <Typography variant="p">Back to users list</Typography>
-        </Box>
+        <Text classes={classes.Text} title={"Back to users list"} />
       </Box>
-      <Box>
-        <SearchBar placeholder={"Search another user"} styleSearch={classes.searchBox} BorderStyleExternal={classes.Border}/>
-        {/* <Typography variant="p">I am search option...</Typography> */}
-      </Box>
+
+      <SearchBar
+        placeholder={"Search another user"}
+        styleSearch={classes.searchBox}
+      />
+      {/* <Typography variant="p">I am search option...</Typography> */}
     </Box>
   );
 }
