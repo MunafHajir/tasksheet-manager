@@ -136,6 +136,7 @@ const DashboardUserList = () => {
   const handleFocus = tab => {
     setCurrentTab(tab);
   };
+
   return (
     <>
       <CssBaseline />
@@ -228,20 +229,20 @@ const DashboardUserList = () => {
             <ButtonComp
               btntext={"Developers"}
               buttonStyle={
-                currentTab === "Developers"
+                currentTab === "Developer"
                   ? classes.FocusFilterButtonStyle
                   : classes.FilterButtonStyle
               }
-              logic={() => handleFocus("Developers")}
+              logic={() => handleFocus("Developer")}
             />
             <ButtonComp
               btntext={"Designers"}
               buttonStyle={
-                currentTab === "Designers"
+                currentTab === "Designer"
                   ? classes.FocusFilterButtonStyle
                   : classes.FilterButtonStyle
               }
-              logic={() => handleFocus("Designers")}
+              logic={() => handleFocus("Designer")}
             />
             <ButtonComp
               btntext={"QA"}
@@ -255,7 +256,8 @@ const DashboardUserList = () => {
           </Box>
         </Box>
         <Border />
-        <CardContainer />
+        <CardContainer currentTab={currentTab} />
+      
       </Box>
     </>
   );
