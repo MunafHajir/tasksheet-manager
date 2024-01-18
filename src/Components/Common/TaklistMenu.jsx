@@ -3,7 +3,8 @@ import { styled, alpha } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { darkScrollbar } from "@mui/material";
+import Scrollbars from "react-custom-scrollbars-2";
+import { createUseStyles } from "react-jss";
 
 const StyledMenu = styled(props => (
   <Menu
@@ -15,7 +16,7 @@ const StyledMenu = styled(props => (
     transformOrigin={{
       vertical: "top",
       horizontal: "right",
-    }}   
+    }}
     {...props}
   />
 ))(({ theme }) => ({
@@ -23,8 +24,9 @@ const StyledMenu = styled(props => (
     borderRadius: 6,
     marginTop: theme.spacing(1),
     minWidth: 230,
-    maxHeight: 100,
-
+    maxWidth: 230,
+    maxHeight: "30vh",
+    overflowY: 'hidden',
     color:
       theme.palette.mode === "light"
         ? "rgb(55, 65, 81)"
@@ -34,6 +36,7 @@ const StyledMenu = styled(props => (
 
     "& .MuiMenu-list": {
       padding: "4px 0",
+
     },
     "& .MuiMenuItem-root": {
       "& .MuiSvgIcon-root": {
@@ -51,8 +54,17 @@ const StyledMenu = styled(props => (
   },
 }));
 
+const mystyle = createUseStyles({
+  scrollbar: {
+    minHeight: "30vh",
+    // minWidth: "10vw",
+    overflow: "hidden",
+  }
+})
+
 export default function CustomizedMenus() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const classes = mystyle()
   const open = Boolean(anchorEl);
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -60,6 +72,8 @@ export default function CustomizedMenus() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const myTask = ["task1", "task1", "task1", "task1", "task1", "task1", "task1", "task1", "task1", "task1", "task1"]
 
   return (
     <div>
@@ -83,45 +97,21 @@ export default function CustomizedMenus() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple>
-          Edit
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          Duplicate
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          Archive
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          More
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          More
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          More
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          More
-        </MenuItem> 
-        <MenuItem onClick={handleClose} disableRipple>
-          More
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          More
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          More
-        </MenuItem>  
-        <MenuItem onClick={handleClose} disableRipple>
-          More
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          More
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          More
-        </MenuItem>
+        <Scrollbars
+
+          className={classes.scrollbar}
+        >
+          {myTask.map((elem, id) => {
+            return (
+              <MenuItem key={id} onClick={handleClose} disableRipple>
+                {elem}
+              </MenuItem>
+            )
+          })
+
+          }
+
+        </Scrollbars>
       </StyledMenu>
     </div>
   );

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import { useState } from 'react';
 import { createUseStyles } from 'react-jss';
 
@@ -47,7 +46,7 @@ export default function UserDate() {
     const isRightChevronDisabled= displayedDate.getDate() == new Date().getDate();
     const isLeftChevronDisabled = displayedDate.getDate() == new Date().getDate() -2;
 
-    console.log(new Date().getDate()-2)
+    console.log(new Date().getDate())
     console.log(displayedDate.getDate())
 
 
@@ -109,7 +108,7 @@ export default function UserDate() {
                     height="15"
                     viewBox="0 0 20 20"
                     fill="none"
-                    // onClick={handleRightChevronClick}
+                    onClick={handleRightChevronClick}
                     style={{ cursor: isRightChevronDisabled ? 'not-allowed' : 'pointer', opacity: isRightChevronDisabled ? 0.5 : 1 }}
                     
                     >
