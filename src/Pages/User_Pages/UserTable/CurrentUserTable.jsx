@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 import { createUseStyles } from "react-jss";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MuiButton from "../../../Components/Common/MuiButton";
-import MuiDrawer from "../../../Components/Common/MuiDrawer";
+// import MuiDrawer from "../../../Components/Common/MuiDrawer";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   fontFamily: "Plus Jakarta Sans",
@@ -71,24 +71,25 @@ const rows = [
     ""
   ),
 ];
-
 const useStyles = createUseStyles({
   table: {
-   
+    backgroundColor: "#fff",
   },
   tablesection: {
-    padding:"0px 100px",
+    padding: "0px 100px",
     boxShadow: "none",
     display: "flex",
     justifyContent: "center",
-    
+    marginBottom: "36px",
+    backgroundColor: "transparent",
   },
   headingcell: {
     backgroundColor: "#DCECFE",
+    borderLeft:"7px solid #DCECFE"
   },
   modulecell: {
     padding: "20px 24px",
-    width: "220px"
+    width: "220px",
   },
   etacell: {
     padding: "20px 24px",
@@ -101,12 +102,26 @@ const useStyles = createUseStyles({
     width: "195px",
   },
   hoverEffect: {
-    cursor: 'pointer',
-    '&:hover': {
-      backgroundColor: '#EFF6FF', 
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: "#EFF6FF",
     },
   },
+
+  developerModule: {
+    borderLeft: "7px solid #0463D1",
+  },
+  salesManagerModule: {
+    borderLeft: "7px solid #0463D1",
+  },
+  superadminModule: {
+    borderLeft: "7px solid #E5C85F",
+  },
+  defaultModuleBorder: {
+    borderBottom: "1px solid var(--Gray-200, #EAECF0)",
+  },
 });
+
 
 export default function CurrentUserTable() {
   const classes = useStyles();
@@ -130,37 +145,70 @@ export default function CurrentUserTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.modulename}>
-              <StyledTableCell
-                className={classes.modulecell} 
-                component="th"
-                scope="row"
-              >
-                {row.modulename}
-              </StyledTableCell>
-              <StyledTableCell className={`${classes.tabcell} ${classes.hoverEffect}`} align="left">
-                {row.task}
-                {/* <MuiDrawer tasks={row.task}/> */}
-              </StyledTableCell>
-              <StyledTableCell className={classes.etacell} align="left">
-                {row.eta}
-              </StyledTableCell>
-              <StyledTableCell align="left" className={classes.statuscell}>
-              <MuiButton
-                  btnsize="small"
-                  variant="outlined"
-                  btnheading="Select Status"
-                  btnprops={{
-                    textTransform: "capitalize",
-                    fontFamily: "Plus Jakarta Sans",
-                      
-                  }}
-                  btnicon={<KeyboardArrowDownIcon />}
-                />
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
+        {rows.map((row, index) => (
+  <StyledTableRow key={index}>
+    <StyledTableCell
+      className={`${classes.modulecell} ${
+        row.modulename === "Developer Module"
+          ? classes.developerModule
+          : row.modulename === "Sales Manager module"
+          ? classes.salesManagerModule
+          : row.modulename === "Superadmin module"
+          ? classes.superadminModule
+          : ""
+      } ${
+        (!row.modulename &&
+          index > 0 &&
+          (rows[index - 1].modulename === "Developer Module" ||
+            rows[index - 1].modulename === "Sales Manager module"))
+          ? classes.developerModule
+          : ""
+      } ${
+        !row.modulename &&
+        index > 0 &&
+        (rows[index - 1].modulename === "Sales Manager module" ||
+          rows[index - 1].modulename === "Superadmin module")
+          ? classes.salesManagerModule
+          : ""
+      } ${
+        !row.modulename &&
+        index > 0 &&
+        rows[index - 1].modulename === "Superadmin module"
+          ? classes.superadminModule
+          : ""
+      }`}
+      component="th"
+      scope="row"
+    >
+      {row.modulename}
+    </StyledTableCell>
+
+    <StyledTableCell
+      className={`${classes.tabcell} ${classes.hoverEffect}`}
+      align="left"
+    >
+      {row.task}
+      {/* <MuiDrawer tasks={row.task}/> */}
+    </StyledTableCell>
+    <StyledTableCell className={classes.etacell} align="left">
+      {row.eta}
+    </StyledTableCell>
+    <StyledTableCell align="left" className={classes.statuscell}>
+      <MuiButton
+        btnsize="small"
+        variant="outlined"
+        btnheading="Select Status"
+        btnprops={{
+          textTransform: "capitalize",
+          fontFamily: "Plus Jakarta Sans",
+        }}
+        btnicon={<KeyboardArrowDownIcon />}
+      />
+    </StyledTableCell>
+  </StyledTableRow>
+))}
+
+
         </TableBody>
       </Table>
     </TableContainer>

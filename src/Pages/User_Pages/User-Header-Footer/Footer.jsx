@@ -16,10 +16,11 @@ const Footer = () => {
       borderTop: "1px solid var(--Gray-5, #E0E0E0)",
       background: "#DCECFE",
       padding:"0.7% 0",
-      position:"fixed",
+      position:"relative",
       bottom:"0",
-      width:"100vw"
+      width:"100%",
     },
+
     footerContainer:{
     width:"87.5vw",
     display:"flex",
