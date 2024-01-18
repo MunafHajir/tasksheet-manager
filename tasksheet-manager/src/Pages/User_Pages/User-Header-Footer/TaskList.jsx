@@ -1,5 +1,7 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
+import Tasklistmenu from "../../../Components/Common/TaklistMenu"
+import { Box } from '@mui/material';
 
 const TaskList = () => {
   const Tasks = ["task1", "task2", "task3", "task4", "task5", "task6",];
@@ -13,12 +15,12 @@ const TaskList = () => {
     container: {
       display: "flex",
       justifyContent: "flex-start",
-      gap: "0.6vw",
+      gap: "1.6vw",
       width: "87.5vw",
     },
-    ListDiv: {
+    ListBox: {
       width: "11vw",
-      height: "5.5vh",
+      height: "6.5vh",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -26,17 +28,6 @@ const TaskList = () => {
       cursor: "pointer",
       border: "1px solid var(--Gray-5, #E0E0E0)",
       background: "#FFF",
-
-      '&:hover': {
-        backgroundColor: "var(--Blue, #0463D1)",
-        boxShadow: "0px 2px 16px 0px rgba(0, 0, 0, 0.16)",
-      
-        '& $ListItem': {
-            color: 'var(--hover-text-color, #FFFFFF)',
-            fontWeight: 'bold',
-          },
-
-      },
     },
     ListItem: {
       margin: "0",
@@ -45,23 +36,35 @@ const TaskList = () => {
       textTransform: "capitalize",
       color: "var(--text, #676C76)",
     },
+    extralist:{
+      border:" 1px solid var(--Blue, #0463D1)",
+      width: "5vw",
+      height: "6.5vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      borderRadius: "6vw",
+      cursor: "pointer",
+      background: "#FFF",
+    },
+    
   });
 
   const classes = useStyles();
 
   return (
-    <div className={classes.List}>
-      <div className={classes.container}>
+    <Box className={classes.List}>
+      <Box className={classes.container}>
         {Tasks.map((elem, id) => (
-          <div key={id} className={classes.ListDiv}>
+          <Box key={id} className={classes.ListBox}>
             <p className={classes.ListItem}>{elem}</p>
-          </div>
+          </Box>
         ))}
-        <div className={classes.ListDiv} style={{width: "5vw",}}>
-          <p className={classes.ListItem}>+2</p>
-        </div>
-      </div>
-    </div>
+        <Box className={classes.extralist}>
+          < Tasklistmenu />
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

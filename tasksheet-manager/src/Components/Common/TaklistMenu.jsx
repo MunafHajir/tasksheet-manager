@@ -3,7 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { darkScrollbar } from '@mui/material';
+import Scrollbars from 'react-custom-scrollbars-2';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -23,8 +23,8 @@ const StyledMenu = styled((props) => (
         borderRadius: 6,
         marginTop: theme.spacing(1),
         minWidth: 230,
-        maxHeight: 100,
-        
+        maxHeight: 200,
+        overflow:"hidden",        
 
         color:
             theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
@@ -61,7 +61,8 @@ export default function CustomizedMenus() {
         setAnchorEl(null);
     };
 
-
+    const myData=["task1","task2","task3","task4","task5","task6","task7","task8","task9","task10"]
+ 
     return (
         <div>
             <Button
@@ -87,48 +88,20 @@ export default function CustomizedMenus() {
                 onClose={handleClose}
 
             >
-                
+                <Scrollbars style={{minHeight:"30vh", maxHeight:"30vh"}}>
+                  {  myData.map((elem, index)=>{
+                    return(
+                        <MenuItem onClick={handleClose} key={index} disableRipple>
+                        {elem}
+                        </MenuItem>
+                    )
+                  })
 
-                    <MenuItem onClick={handleClose} disableRipple>
-                        Edit
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        Duplicate
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        Archive
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        More
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        More
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        More
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        More
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        More
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        More
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        More
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        More
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        More
-                    </MenuItem>
-                    <MenuItem onClick={handleClose} disableRipple>
-                        More
-                    </MenuItem>
+                    
+                  }
+                  
                
+            </Scrollbars>
             </StyledMenu>
         </div>
     );
