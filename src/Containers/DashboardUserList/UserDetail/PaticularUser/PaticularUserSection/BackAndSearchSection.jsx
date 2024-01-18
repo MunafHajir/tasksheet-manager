@@ -27,8 +27,11 @@ const useStyles = createUseStyles({
   },
   searchBox:{
     flexBasis:"15rem",
-  //  paddingRight:"10rem"
   },
+  Border:{
+    backgroundColor:"white",
+    width:"28.64vw"
+  }
 });
 export default function BackAndSearchSection() {
   const navigator = useNavigate();
@@ -62,7 +65,7 @@ export default function BackAndSearchSection() {
         </Box>
       </Box>
       <Box>
-        <SearchBar placeholder={"Search another user"} styleSearch={classes.searchBox}/>
+        <SearchBar placeholder={"Search another user"} styleSearch={classes.searchBox} BorderStyleExternal={classes.Border}/>
         {/* <Typography variant="p">I am search option...</Typography> */}
       </Box>
     </Box>

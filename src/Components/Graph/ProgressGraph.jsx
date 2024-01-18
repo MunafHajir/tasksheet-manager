@@ -16,6 +16,7 @@ const ProgressGraph = ({ timeline , progress}) => {
         chart: {
           type: "bar",
           animation: false,
+          height:"350px",
         },
         title: {
           text: null,
@@ -50,7 +51,7 @@ const ProgressGraph = ({ timeline , progress}) => {
         tooltip: false,
         plotOptions: {
           bar: {
-            pointPadding: 0.2,
+            pointPadding: 0.1,
             borderRadius: 8,
             groupPadding: 0.3,
           },

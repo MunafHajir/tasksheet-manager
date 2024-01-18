@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import React from "react";
 import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
@@ -25,11 +26,11 @@ export default function ProjectBox({
 }) {
   const classes = useStyles();
   return (
-    <div
+    <Box
       className={`${classes.box}  ${className}`}
       onClick={() => handleClick(value ,projectName)}
     >
       <p>{projectName}</p>
-    </div>
+    </Box>
   );
 }

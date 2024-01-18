@@ -47,7 +47,7 @@ export default function TaskListHeaderPart({ userName }) {
         <Box>
           <DropDown
             sequenceDisplay={"Week"}
-            sequenceDropDown={"Week"}
+            sequenceDropDown={"Weeks"}
             active={active}
           />
         </Box>
