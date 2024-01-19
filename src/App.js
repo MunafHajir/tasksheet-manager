@@ -8,6 +8,7 @@ import DashboardUserList from "Containers/DashboardUserList/DashboardUserList";
 import PaticularUserSection from "Containers/DashboardUserList/UserDetail/UserDetail";
 import Layout from "Layout";
 import React from "react";
+import Otp from "Containers/login/Otp";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
           <Route path="/ProjectList" element={<DashboardProjectList />} />
           <Route path="/ProjectList/:ProjectName" element={<ProjectDetail />} />
           <Route path="/UserList" element={<DashboardUserList />} />
-          <Route path="/" element={<Dashboard />} />
+          {/* <Route path="/" element={<Dashboard />} /> */}
           <Route
             path="/UserList/:ProjectName" 
             element={<PaticularUserSection />}
@@ -28,7 +29,8 @@ const App = () => {
       </Layout>
 
       <Routes>
-        <Route path="/" element={<Emaill />}/>
+        {/* <Route path="/" element={<Emaill />}/> */}
+        {/* <Route path="/" element={<Otp/>}/> */}
         <Route path="/User-Dashboard" element={<UserFlowDashboard />}/>
       </Routes>
     </>
