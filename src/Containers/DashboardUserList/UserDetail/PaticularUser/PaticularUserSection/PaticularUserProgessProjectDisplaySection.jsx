@@ -119,7 +119,10 @@ export default function PaticularUserProgessProjectDisplaySection({
             fontSize: "1.2rem",
           }}
         >
-          <Text classes={classes.TimeLine} title={`Progress of ${PaticularUserName}`} />
+          <Text
+            classes={classes.TimeLine}
+            title={`Progress of ${PaticularUserName}`}
+          />
         </Box>
         <Box>
           <ButtonComp

@@ -10,11 +10,11 @@ import DateTabs from "Components/Common/DateTabs";
 import CreateNewProject from "Containers/CreateNewProject/CreateNewProject";
 import { CreateNewProjectModuleETATable } from "Components/Table/CreateNewProjectTable";
 import ButtonComp from "Components/Common/Button";
-const useStyles =createUseStyles({
-  chartContainer:{
-    margin:"2rem 0rem",
-    backgroundColor:"white",
-    borderRadius:".5rem"
+const useStyles = createUseStyles({
+  chartContainer: {
+    margin: "2rem 0rem",
+    backgroundColor: "white",
+    borderRadius: ".5rem",
   },
   chartSection: {
     display: "flex",
@@ -125,11 +125,12 @@ export default function PaticularUserSection() {
               sequenceDropDown={"Month"}
             />
           </Box>
-          <TaskListHeaderPart userName={"Shubham Joshi"}/>
-          <DateTabs/>
-          <CreateNewProjectModuleETATable 
-           data={tableData}
-           customizableColumns={columns}/>
+          <TaskListHeaderPart userName={"Shubham Joshi"} />
+          <DateTabs />
+          <CreateNewProjectModuleETATable
+            data={tableData}
+            customizableColumns={columns}
+          />
         </Box>
       </Box>
     </>

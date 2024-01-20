@@ -32,7 +32,6 @@ const Input = ({ type, placeholder, logic  }) => {
       onFocus={(e) => (e.target.type = type)}
       onBlur={(e) => (e.target.type = "text")}
       onChange={logic}
-      
     />
   );
 };

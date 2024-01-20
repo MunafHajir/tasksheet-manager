@@ -53,8 +53,8 @@ const useStyle = createUseStyles({
     gap: "8px",
     border: "1px solid #0463D1",
     borderRadius: "8px",
-    padding: "13px 15px",
-    flex:"1 0 0"
+    padding: "8px 15px",
+    flex: "1 0 0",
   },
   btnTextStyle: {
     color: "#0463D1",
@@ -149,7 +149,7 @@ const useStyle = createUseStyles({
     background: "#FFF",
     padding: "10px 24px",
   },
-  
+
   ModelContainer: {
     display: "flex",
     justifyContent: "center",
@@ -183,7 +183,7 @@ const useStyle = createUseStyles({
   selectHeight: {
     height: "56px",
   },
- 
+
   Text: {
     color: "#242424",
     fontFamily: "Plus Jakarta Sans",
@@ -209,7 +209,7 @@ const useStyle = createUseStyles({
     fontFamily: "Plus Jakarta Sans",
     outline: "none",
     borderRadius: "10px",
-    width:"100%"
+    width: "100%",
   },
   inputBox: {
     fontFamily: "Plus Jakarta Sans",
@@ -219,11 +219,11 @@ const useStyle = createUseStyles({
     fontSize: 16,
     flex: "0 0 48%",
   },
-  BtnContainer:{
-    display:"flex",
-    gap:"8px",
-    width:"100%"
-  }
+  BtnContainer: {
+    display: "flex",
+    gap: "8px",
+    width: "100%",
+  },
 });
 
 const DashboardUserList = () => {
@@ -232,7 +232,7 @@ const DashboardUserList = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleFocus = (tab) => {
+  const handleFocus = tab => {
     setCurrentTab(tab);
   };
   const Project = [
@@ -394,9 +394,9 @@ const DashboardUserList = () => {
             />
             <Input
               type={Text}
-              placeholder={'Enter User Name'}
-              onFocus={(e) => (e.target.type = "placeholder")}
-              onBlur={(e) => (e.target.type = "text")}
+              placeholder={"Enter User Name"}
+              onFocus={e => (e.target.type = "placeholder")}
+              onBlur={e => (e.target.type = "text")}
               // onChange={logic}
             />
           </Box>
@@ -406,11 +406,11 @@ const DashboardUserList = () => {
               inputLabelStyle={classes.labelStyle}
             />
             <Input
-            type={Text}
-            placeholder={'Enter email id'}
-            onFocus={(e) => (e.target.type = "placeholder")}
-            onBlur={(e) => (e.target.type = "text")}
-            // onChange={logic}
+              type={Text}
+              placeholder={"Enter email id"}
+              onFocus={e => (e.target.type = "placeholder")}
+              onBlur={e => (e.target.type = "text")}
+              // onChange={logic}
             />
           </Box>
           <Box>
@@ -428,10 +428,9 @@ const DashboardUserList = () => {
           </Box>
           <Box className={classes.BtnContainer}>
             <ButtonComp
-             classesSvg={classes.classesSvg}
-               btnTextStyle={classes.btnTextStyle}
-               buttonStyle={classes.buttonStyle}
-             
+              classesSvg={classes.classesSvg}
+              btnTextStyle={classes.btnTextStyle}
+              buttonStyle={classes.buttonStyle}
               btntext={"cancel"}
               logic={handleClose}
             />
