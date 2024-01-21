@@ -40,11 +40,11 @@ const useStyle = createUseStyles({
     top: "50%",
     left: "50%",
     transform: "translate(-50% , -50%)",
-    width: "30%",
+    width: "32%",
     padding: "24px",
     flexDirection: "column",
     alignItems: "center",
-    gap: "32px",
+    gap: "24px",
     borderRadius: "12px",
     background: "#FFF",
     boxShadow:
@@ -115,6 +115,70 @@ const useStyle = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
   },
+  innerColorWarning: {
+    background: "#FEF0C7",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "8px",
+    borderRadius: "50%",
+  },
+  outterColorWarning: {
+    background: "#FFFAEB",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "8px",
+    borderRadius: "50%",
+  },
+  UserRemoveTextContainer:{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems:"center",
+    flexDirection:"column",
+    gap:"8px"
+  },
+  RemoveUserTextStyle:{
+    textAlign:"center",
+    color: "var(--Grey-Dark-grey, #667085)",
+    textAlign: "center",
+    fontFamily: "Plus Jakarta Sans",
+    fontSize: "14px",
+    fontStyle: "normal",
+    fontWeight: 400,
+    lineHeight: "20px",
+  },
+  noBtnStyle:{
+    display: "flex",
+    padding: "18px 20px",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "8px",
+    flex: "1 0 0",
+    borderRadius: "8px",
+    border: "1px solid var(--Blue, #0463D1)",
+    background: "#FFF",
+    boxShadow: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
+  },
+  yesButtonStyle:{
+    display: "flex",
+    padding: "18px 20px",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "8px",
+    flex: "1 0 0",
+    borderRadius: "8px",
+    color:"#fff",
+    background: "var(--Blue, #0463D1)",
+    boxShadow: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
+  },
+  ButtonContainer:{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems:"center",
+    gap:"8px",
+    width:"100%"
+  }
 });
 
 const Demo = styled("div")(({ theme }) => ({
@@ -133,12 +197,15 @@ const AddUser = props => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [userRemove, setUserRemove] = useState(false);
+  const handleUserOpen = () => setUserRemove(true);
+  const handleUserClose = () => setUserRemove(false);
 
   const generateListItems = () => {
     return props.AddUserData.map((user, index) => (
       <ListItem key={index} className={`${classes.border} ${classes.listItem}`}>
         <ListItemText primary={user.userName} className={classes.textHover} />
-        <Box className={classes.IconPadding}>
+        <Box className={classes.IconPadding} onClick={handleUserOpen}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="21"
@@ -219,6 +286,43 @@ const AddUser = props => {
           </Box>
         </ModelSelection>
       </CssBaseline>
+
+      {/* User Model Selection */}
+      <ModelSelection open={userRemove}>
+        <Box className={classes.ModelContainer}>
+
+          <Box className={classes.outterColorWarning}>
+            <Box className={classes.innerColorWarning}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="24"
+                viewBox="0 0 25 24"
+                fill="none"
+              >
+                <path
+                  d="M12.4998 7.99996V12M12.4998 16H12.5098M10.7898 2.85996L2.31978 17C2.14514 17.3024 2.05274 17.6453 2.05177 17.9945C2.05079 18.3437 2.14127 18.6871 2.3142 18.9905C2.48714 19.2939 2.7365 19.5467 3.03748 19.7238C3.33847 19.9009 3.68058 19.9961 4.02978 20H20.9698C21.319 19.9961 21.6611 19.9009 21.9621 19.7238C22.2631 19.5467 22.5124 19.2939 22.6854 18.9905C22.8583 18.6871 22.9488 18.3437 22.9478 17.9945C22.9468 17.6453 22.8544 17.3024 22.6798 17L14.2098 2.85996C14.0315 2.56607 13.7805 2.32308 13.481 2.15444C13.1814 1.98581 12.8435 1.89722 12.4998 1.89722C12.156 1.89722 11.8181 1.98581 11.5186 2.15444C11.2191 2.32308 10.968 2.56607 10.7898 2.85996Z"
+                  stroke="#DC6803"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  color="#DC6803"
+                />
+              </svg>
+            </Box>
+          </Box>
+
+          <Box className={classes.UserRemoveTextContainer}>
+            <Text classes={classes.Text} title={`Are you sure you want to remove this user ?`}/>
+            <Text classes={classes.RemoveUserTextStyle} title={`By clicking on the yes button you are making sure that you want to remove this user.`}/>
+          </Box>
+
+          <Box className={classes.ButtonContainer}>
+            <ButtonComp logic={handleUserClose} buttonStyle={classes.noBtnStyle} btntext={"No"}/>
+            <ButtonComp logic={handleUserClose} variant={"contained"} buttonStyle={classes.yesButtonStyle} btntext={"Yes, remove"}/>
+          </Box>
+        </Box>
+      </ModelSelection>
     </>
   );
 };

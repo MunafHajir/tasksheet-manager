@@ -73,6 +73,7 @@ const options = {
       pointPadding: 0,
       groupPadding: 0.3,
       borderRadius: "8px",
+      borderWidth: 0,
     },
   },
   series: [
