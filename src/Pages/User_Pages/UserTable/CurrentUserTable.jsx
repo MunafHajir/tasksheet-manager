@@ -1,12 +1,15 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  tableCellClasses,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
 import { createUseStyles } from "react-jss";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MuiButton from "../../../Components/Common/MuiButton";
@@ -22,7 +25,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
   },
-  
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -30,7 +32,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
   "&:last-child td, &:last-child th": {
     border: 0,
-    
   },
 }));
 
@@ -111,7 +112,6 @@ const useStyles = createUseStyles({
       backgroundColor: "#EFF6FF",
     },
   },
-
   developerModule: {
     borderLeft: "7px solid #0463D1",
     borderBottom: "1px solid #EAECF0",
@@ -145,9 +145,14 @@ export default function CurrentUserTable() {
     }
     setOpenDrawerIndex(null);
   };
+
   return (
-    <TableContainer component={Paper} className={classes.tablesection} onClick={handleDrawerClose}>
-      <Table className={classes.table} aria-label="customized table" >
+    <TableContainer
+      component={Paper}
+      className={classes.tablesection}
+      onClick={handleDrawerClose}
+    >
+      <Table className={classes.table} aria-label="customized table">
         <TableHead className={classes.headingcell}>
           <TableRow>
             <StyledTableCell className={classes.headingcell}>
@@ -186,8 +191,8 @@ export default function CurrentUserTable() {
                 } ${
                   !row.modulename &&
                   index > 0 &&
-                  (rows[index - 1].modulename === "Sales Manager module" ||
-                    rows[index - 1].modulename === "Superadmin module")
+                  (rows[index - 0].modulename === "Sales Manager module" &&
+                  rows[index - 1].modulename === "Sales Manager module") 
                     ? classes.salesManagerModule
                     : ""
                 } ${

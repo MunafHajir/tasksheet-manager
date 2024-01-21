@@ -1,11 +1,8 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
+import { Box, Drawer, Typography, TextField, Container } from "@mui/material";
 import Button from "./Button";
-import { Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import TextField from "@mui/material/TextField";
-import Container from "@mui/material/Container";
+
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -27,7 +24,10 @@ export default function MuiDrawer({ tasks, open }) {
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
 
@@ -72,7 +72,7 @@ export default function MuiDrawer({ tasks, open }) {
             color: "#fff",
             border: "2px solid #fff",
             borderRadius: "50%",
-            cursor: "pointer", // Add cursor: pointer to indicate it's clickable
+            cursor: "pointer",
           }}
           onClick={toggleDrawer(anchor, false)} // Call toggleDrawer with "right" and false
         />
@@ -147,8 +147,6 @@ export default function MuiDrawer({ tasks, open }) {
             anchor={anchor}
             open={open}
             onClose={toggleDrawer(anchor, false)}
-            
-    
           >
             {list(anchor)}
           </Drawer>
