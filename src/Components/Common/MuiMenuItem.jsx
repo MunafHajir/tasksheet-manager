@@ -6,7 +6,12 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   menuitem_col: {
     fontFamily: "Plus Jakarta Sans",
-    width:"135px",
+    width: "135px",
+  },
+  menu_col: {
+    borderRadius: "8px",
+    border: "1px solid #D0D5DD",
+    boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
   },
 });
 
@@ -23,6 +28,7 @@ export default function MuiMenuItem({ anchorEl, open, onClose, menuprops }) {
   return (
     <div>
       <Menu
+        className={classes.menu_col}
         sx={{ ...menuprops }}
         id="basic-menu"
         anchorEl={anchorEl}
