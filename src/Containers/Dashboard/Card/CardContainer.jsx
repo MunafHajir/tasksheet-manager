@@ -14,7 +14,7 @@ const useStyles = createUseStyles({
   },
   flex: {
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     alignItems: "center",
     gap: "16px",
     flexWrap: "wrap",

@@ -17,7 +17,7 @@ const useStyle = createUseStyles({
     position:"relative"
   },
   Icon: {
-    padding: "0px 15px",
+    padding: "0px 15px 0px 0px",
     cursor: "pointer",
     display:"flex",
     alignItems:"center",
@@ -26,7 +26,7 @@ const useStyle = createUseStyles({
   },
 });
 
-const SearchBar = ({ placeholder, type, logic ,styleSearch}) => {
+const SearchBar = ({ placeholder, type, logic ,styleSearch ,BorderStyleExternal}) => {
   const [search, setSearch] = useState("");
   const classes = useStyle();
 
@@ -36,7 +36,7 @@ const SearchBar = ({ placeholder, type, logic ,styleSearch}) => {
 
   return (
     <>
-      <div className={classes.Border}>
+      <div className={`${classes.Border} ${BorderStyleExternal}`}>
         <input
           className={`${classes.Search} ${styleSearch}`}
           type={type}
@@ -45,7 +45,8 @@ const SearchBar = ({ placeholder, type, logic ,styleSearch}) => {
           placeholder={placeholder}
           value={search}
           onChange={handleChanges}
-        />
+          ></input>
+       
         <div className={classes.Icon} onClick={logic}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import ButtonComp from "Components/Common/Button";
+import Text from "Components/Common/Text";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { useSelector } from "react-redux";
@@ -26,47 +27,60 @@ const useStyles = createUseStyles({
     fontWeight: "600",
   },
   displayProjectName: {
-    fontWeight: "600",
-    display: "inline-block",
+    color: "#0463D1",
+    fontSize: "18px",
+    fontStyle: "normal",
+    fontWeight: 600,
     lineHeight: "28px",
-    marginRight: "1rem",
   },
   performnacePercentage: {
-    color: "#219653",
+    color: "#0463D1",
     fontWeight: "600",
     fontSize: ".9rem",
     backgroundColor: "#e4f5e4",
     padding: ".05rem 1rem",
     borderRadius: "1rem",
     wordSpacing: ".1rem",
+    fontFamily: "Plus Jakarta Sans",
   },
   progressSection: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding:"1rem 2rem 0 0"
+    padding: "1rem 2rem 0 0",
   },
   btn: {
-    display:"flex",
-    justifyContent:"center",
-    alignItems:"center",
-    fontSize:".8rem",
-    fontWeight:"600",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: ".8rem",
+    fontWeight: "600",
   },
-  svg:{
-    height:"auto",
-    marginTop:"5px",
-    marginRight:"3px"
-  }
+  svg: {
+    height: "auto",
+    marginTop: "5px",
+    marginRight: "3px",
+  },
+  Flex: {
+    display: "flex",
+    alignItems: "center",
+    gap: "9px",
+  },
+  TimeLine: {
+    color: "#101828",
+    fontFamily: "Poppins",
+    fontSize: "18px",
+    fontStyle: "normal",
+    fontWeight: 500,
+    lineHeight: "28px",
+  },
 });
 export default function PaticularUserProgessProjectDisplaySection({
   PaticularUserName,
 }) {
-  const currentProjectOpen = useSelector(
-    (state) => state.Reducer.ActiveProject
-  );
+  const currentProjectOpen = useSelector(state => state.Reducer.ActiveProject);
   const navigator = useNavigate();
-  const handleClick = (event) => {
+  const handleClick = event => {
     navigator(`/ProjectList/${event}`);
   };
 
@@ -74,33 +88,41 @@ export default function PaticularUserProgessProjectDisplaySection({
   return (
     <Box>
       <Box className={classes.chartSectionHeaderPart}>
-        <Box>
-          <Typography variant="p" className={classes.displayProjectName}>
-            {currentProjectOpen} Dashboard
-          </Typography>
-          <span className={classes.performnacePercentage}>
-            {90}% work efficiency on this project till date
-          </span>
+        <Box className={classes.Flex}>
+          <Text
+            classes={classes.displayProjectName}
+            title={`${currentProjectOpen} Dashboard`}
+          />
+          <span className={classes.performnacePercentage}>Resource Based</span>
         </Box>
         <Box
           className={classes.designSection}
           onClick={() => handleClick(currentProjectOpen)}
         >
           <Typography variant="p">
-            {" "}
             <Typography
               variant="p"
               sx={{ fontSize: "1rem", fontWeight: "900" }}
             >
               .
-            </Typography>{" "}
+            </Typography>
             Design stage
           </Typography>
         </Box>
       </Box>
       <Box className={classes.progressSection}>
-        <Box sx={{ marginLeft: "1.5%", fontWeight: "600", marginTop: "1%"  ,fontSize:"1.2rem"}}>
-          <Typography variant="p">Progress of {PaticularUserName} </Typography>
+        <Box
+          sx={{
+            marginLeft: "1.5%",
+            fontWeight: "600",
+            marginTop: "1%",
+            fontSize: "1.2rem",
+          }}
+        >
+          <Text
+            classes={classes.TimeLine}
+            title={`Progress of ${PaticularUserName}`}
+          />
         </Box>
         <Box>
           <ButtonComp
@@ -148,7 +170,7 @@ export default function PaticularUserProgessProjectDisplaySection({
                 />
               </svg>
             }
-            buttonStyle={classes.btn} 
+            buttonStyle={classes.btn}
             classesSvg={classes.svg}
             classesButton={classes.ExportButton}
           />

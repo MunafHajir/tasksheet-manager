@@ -1,11 +1,9 @@
+import { Box, FormControl, MenuItem, Select, Typography } from "@mui/material";
 import {
-  Box,
-  FormControl,
-  MenuItem,
-  Select,
-  Typography,
-} from "@mui/material";
-import { MonthList, WeekList } from "Containers/DashboardUserList/UserDetail/PaticularUser/PaticularUserSection/PaticularGraphMonthAndWeekDatalist";
+  MonthList,
+  WeekList,
+  Weeks,
+} from "Containers/DashboardUserList/UserDetail/PaticularUser/PaticularUserSection/PaticularGraphMonthAndWeekDatalist";
 import React from "react";
 import { createUseStyles } from "react-jss";
 // import {
@@ -13,14 +11,14 @@ import { createUseStyles } from "react-jss";
 //   WeekList,
 // } from "./PaticularGraphMonthAndWeekDatalist";
 const useStyles = createUseStyles({
-//   graphBoxSection: {
-//     width: "85%",
-//     margin: "0rem 1rem",
-//     padding: ".5rem",
-//     marginBottom: "1rem",
-//     boxShadow: "0px 0px 5px -2px  gray ",
-//     borderRadius: ".2rem",
-//   },
+  //   graphBoxSection: {
+  //     width: "85%",
+  //     margin: "0rem 1rem",
+  //     padding: ".5rem",
+  //     marginBottom: "1rem",
+  //     boxShadow: "0px 0px 5px -2px  gray ",
+  //     borderRadius: ".2rem",
+  //   },
   graphTopInformationSection: {
     display: "flex",
     justifyContent: "space-between",
@@ -63,12 +61,19 @@ const useStyles = createUseStyles({
     fontSize: "1rem",
     fontWeight: "600",
   },
-  active:{
-    backgroundColor:"#0463D1",
-    color:"white",
+  active: {
+    backgroundColor: "#0463D1",
+    color: "#fff",
+  },
+  color:{
+    color:"#fff"
   }
 });
-export default function DropDown({ sequenceDropDown, sequenceDisplay,active}) {
+export default function DropDown({
+  sequenceDropDown,
+  sequenceDisplay,
+  active,
+}) {
   const classes = useStyles();
   const [week, setWeek] = React.useState("");
 
@@ -92,27 +97,39 @@ export default function DropDown({ sequenceDropDown, sequenceDisplay,active}) {
       </MenuItem>
     );
   });
+  const WeeksInWeekWise = Weeks;
+  const WeeksWise = WeeksInWeekWise.map((item, index) => {
+    return (
+      <MenuItem value={index + 1} key={index}>
+        {item}
+      </MenuItem>
+    );
+  });
   return (
     <Box className={`${classes.graphBoxSection}`}>
-        <Box>
-          <FormControl sx={{ m: 1, minWidth: 120 }}>
-            <Select
-              value={week}
-              onChange={handleChange}
-              displayEmpty
-              inputProps={{ "aria-label": "Without label" }}
-              className={`${active ? classes.active :""}`}
-            >
-              <MenuItem value="">
-                <em>{sequenceDisplay}</em>
-              </MenuItem>
-              {
-                sequenceDropDown === "Week" ? Day : Month // take the input sequence and distribute the value just like month and week
-              }
-            </Select>
-          </FormControl>
-        </Box>
+      <Box>
+        <FormControl sx={{ m: 1, minWidth: 120 }}>
+          <Select
+            value={week}
+            onChange={handleChange}
+            displayEmpty
+            inputProps={{ "aria-label": "Without label" }}
+            className={`${active ? classes.active : ""}`}
+          >
+            <MenuItem value="" className={classes.color}>
+              <em className={`${active ? classes.active : ""}`}>{sequenceDisplay}</em>
+            </MenuItem>
+            {
+              sequenceDropDown === "Week"
+                ? Day
+                : sequenceDropDown === "Weeks"
+                ? WeeksWise
+                : Month // take the input sequence and distribute the value just like month and week
+            }
+          </Select>
+        </FormControl>
       </Box>
+    </Box>
     // </Box>
   );
 }

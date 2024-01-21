@@ -8,7 +8,7 @@ const useStyles = createUseStyles({
     borderRadius: "8px",
     padding: 20,
     // margin: 20,
-    flex: "0 0 28.3%",
+    flex: "0 0 32%",
     background: "#fff",
     textAlign: "center",
     boxShadow: "0 1px 3px 0px rgba(16, 24, 40, 0.10)",

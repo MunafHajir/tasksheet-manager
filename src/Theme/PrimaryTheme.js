@@ -1,8 +1,9 @@
-const { createTheme } = require("@mui/material");
+import { createTheme } from "@mui/material/styles";
 
-export const theme = createTheme({
-  typography:{
-    fontFamily:"Plue Jakarta Sans",
-    fontSize:'1vw'
-  }
-})
+const Theme = createTheme({
+  typography: {
+      fontFamily: "Plus Jakarta Sans",
+    },
+});
+
+export default Theme;
