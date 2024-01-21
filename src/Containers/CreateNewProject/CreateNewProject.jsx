@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import { createUseStyles } from "react-jss";
-import { Box, Checkbox, CssBaseline, FormControlLabel } from "@mui/material";
+import {
+  Box,
+  Checkbox,
+  CssBaseline,
+  FormControlLabel,
+  Drawer,
+} from "@mui/material";
 import Text from "Components/Common/Text";
 import InputLabelText from "Components/Common/InputLabelText";
 import Input from "Components/Common/Input";
@@ -11,6 +16,10 @@ import ProjectUserSelection from "./ProjectUserSelection";
 import { CreateNewProjectModuleETATable } from "Components/Table/CreateNewProjectTable";
 import ButtonComp from "Components/Common/Button";
 import SupportingText from "Components/Common/SupportingText";
+import TaskDrawer from "Components/Drawer/TaskDrawer";
+import { makeStyles } from "@mui/styles";
+import { createUseStyles } from "react-jss";
+import AddTAskDrawer from "Components/Drawer/AddTAskDrawer";
 
 const useStyle = createUseStyles({
   CustomTextStyle: {
@@ -93,13 +102,17 @@ const useStyle = createUseStyles({
   borderWidth: {
     margin: "10px -24px",
   },
-  labelMargin:{
-    margin:"36px 0px"
-  }
+  labelMargin: {
+    margin: "36px 0px",
+  },
+  drawerPaper: {
+    width: "30%",
+  },
 });
 
 const AssignedUsers = () => {
   const classes = useStyle();
+
   let users = ["Rahul Sharma", "Jay Tiwari", "+4"];
   return (
     <>
@@ -118,10 +131,22 @@ const AssignedUsers = () => {
 };
 
 const CreateNewProject = () => {
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const classes = useStyle();
+
+  // const HandleTaskClick = (taskId) => {
+  //   // Perform actions when a task is clicked, using the taskId
+  //   alert(`Task ${taskId} clicked`);
+  // };
+
+  const handleCloseDrawer = () => {
+    setOpenDrawer(false);
+    // setSelectedTask(' ');
+  };
 
   const tableData = [
     {
@@ -131,6 +156,10 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setSelectedTask(taskId);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 2,
@@ -139,6 +168,10 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setSelectedTask(taskId);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 3,
@@ -147,6 +180,10 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setSelectedTask(taskId);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 4,
@@ -155,6 +192,10 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setSelectedTask(taskId);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 5,
@@ -163,6 +204,10 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setSelectedTask(taskId);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 6,
@@ -171,6 +216,10 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setSelectedTask(taskId);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 7,
@@ -183,12 +232,12 @@ const CreateNewProject = () => {
   ];
 
   const columns = [
-    { id: "moduleName", label: "Module Name", rowWidth: "200px" },
-    { id: "task", label: "Task", rowWidth: "440px" },
+    { id: "moduleName", label: "Module Name", rowWidth: "180px" },
+    { id: "task", label: "Task", rowWidth: "400px" },
     {
       id: "expectedDateTime",
       label: "Expected Date and Time",
-      rowWidth: "200px",
+      rowWidth: "225px",
     },
     { id: "assignedTaskTo", label: "Assigned Task To", rowWidth: "250px" },
     { id: "moduleETA", label: "Module ETA", rowWidth: "130px" },
@@ -286,6 +335,14 @@ const CreateNewProject = () => {
               data={tableData}
               customizableColumns={columns}
             />
+            <Drawer
+              anchor="right"
+              open={openDrawer}
+              onClose={handleCloseDrawer}
+              classes={{ paper: classes.drawerPaper }}
+            >
+              { selectedTask && <TaskDrawer selectedTask={selectedTask} Close={handleCloseDrawer}/> }
+            </Drawer>
           </Box>
         </Box>
       </CssBaseline>

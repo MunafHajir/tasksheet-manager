@@ -1,9 +1,8 @@
-import React from 'react'
+const { createTheme } = require("@mui/material");
 
-const PrimaryTheme = () => {
-  return (
-    <div>PrimaryTheme</div>
-  )
-}
-
-export default PrimaryTheme
+export const theme = createTheme({
+  typography:{
+    fontFamily:"Plue Jakarta Sans",
+    fontSize:'1vw'
+  }
+})

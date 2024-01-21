@@ -24,12 +24,13 @@ const useStyles = makeStyles({
     fontWeight: 600,
   },
   ColumnStyle: {
-    fontFamily:"Plus Jakarta Sans",
-    fontSize:'14px'
+    fontFamily: "Plus Jakarta Sans",
+    fontSize: "14px",
   },
   hoverEffect: {
-    '&:hover': {
-      backgroundColor: '#E3F2FD',
+    "&:hover": {
+      backgroundColor: "#E3F2FD",
+      cursor: 'pointer'
     },
   },
 });
@@ -46,7 +47,10 @@ export const CreateNewProjectModuleETATable = ({
         <TableHead className={classes.header}>
           <TableRow>
             {customizableColumns.map((column) => (
-              <TableCell key={column.id} style={{ width: column.rowWidth , padding:'12px 24px' }}>
+              <TableCell
+                key={column.id}
+                style={{ width: column.rowWidth, padding: "10px 24px" }}
+              >
                 <Typography variant="p" className={classes.headingText}>
                   {column.label}
                 </Typography>
@@ -56,10 +60,21 @@ export const CreateNewProjectModuleETATable = ({
         </TableHead>
         <TableBody>
           {data.map((row) => (
-            <TableRow key={row.id} >
+            <TableRow key={row.id}>
               {customizableColumns.map((column) => (
-                <TableCell key={column.id} sx={{padding:'12px 24px'}} className={column.id === 'task' ? classes.hoverEffect : ''}>
-                  <Typography variant="p" className={classes.ColumnStyle}>{row[column.id]}</Typography>
+                <TableCell
+                  key={column.id}
+                  sx={{ padding: "12px 24px" }}
+                  className={column.id === "task" && row.id < 7 ? classes.hoverEffect : ""}
+                  onClick={
+                    column.id === 'task' && row.onTaskClick
+                      ? () => row.onTaskClick(row)
+                      : null
+                  }
+                >
+                  <Typography variant="p" className={classes.ColumnStyle}>
+                    {row[column.id]}
+                  </Typography>
                 </TableCell>
               ))}
             </TableRow>
@@ -69,4 +84,3 @@ export const CreateNewProjectModuleETATable = ({
     </TableContainer>
   );
 };
-

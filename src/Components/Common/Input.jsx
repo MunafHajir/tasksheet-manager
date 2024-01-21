@@ -24,7 +24,7 @@ const CustomizedTextField = styled(TextField)(({ theme }) => ({
   }
 }));
 
-const Input = ({ type, placeholder, logic  }) => {
+const Input = ({ type, placeholder, logic }) => {
   return (
     <CustomizedTextField
       type={type}
@@ -32,7 +32,6 @@ const Input = ({ type, placeholder, logic  }) => {
       onFocus={(e) => (e.target.type = type)}
       onBlur={(e) => (e.target.type = "text")}
       onChange={logic}
-      
     />
   );
 };
