@@ -79,9 +79,10 @@ const rows = [
 const useStyles = createUseStyles({
   table: {
     backgroundColor: "#fff",
+    margin: "0px 72px",
+
   },
   tablesection: {
-    padding: "0px 100px",
     boxShadow: "none",
     display: "flex",
     justifyContent: "center",
