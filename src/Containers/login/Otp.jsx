@@ -62,7 +62,7 @@ const mystyle = createUseStyles({
     correctLogo: {
        
        objectFit:"cover",
-        zIndex: '1',
+        zIndex: '2',
         position: "absolute",
     },
 
