@@ -7,7 +7,7 @@ const myStyle= createUseStyles({
     Card:{
         minWidth: "11vw",
         maxWidth: "14vw",
-        maxHeight: "5vh",
+        minHeight: "5vh",
         maxHeight:"7vh",
         display:"flex",
         justifyContent:"center",
@@ -43,8 +43,8 @@ export default function UserDate() {
     const isLeftChevron = displayedDate.getDate() > new Date().getDate() -2;
 
     
-    const isRightChevronDisabled= displayedDate.getDate() == new Date().getDate();
-    const isLeftChevronDisabled = displayedDate.getDate() == new Date().getDate() -2;
+    const isRightChevronDisabled= displayedDate.getDate() === new Date().getDate();
+    const isLeftChevronDisabled = displayedDate.getDate() === new Date().getDate() -2;
 
     console.log(new Date().getDate())
     console.log(displayedDate.getDate())
