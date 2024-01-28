@@ -14,8 +14,10 @@ const useStyle = createUseStyles({
   },
   DashboardContainer: {
     padding: "31px 30px",
-    background: "#fff",
     borderRadius: "8px",
+    border: "1px solid #E7E7E7",
+    background: "#FFF",
+    boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
   },
   Text: {
     color: "var(--Text-5, #1D2129)",

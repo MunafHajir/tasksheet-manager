@@ -1,8 +1,4 @@
-import {
-  Box,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Box, Typography, styled } from "@mui/material";
 import InputLabelText from "Components/Common/InputLabelText";
 import SupportingText from "Components/Common/SupportingText";
 import React from "react";
@@ -39,24 +35,33 @@ const userStyles = createUseStyles({
   Input: {
     width: "100%",
   },
-  flex:{
-    display:"flex",
-    justifyContent:"space-between",
-    flexDirection:"column",
-    padding: "10px 24px",    
-    height:"88%"
+  flex: {
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "column",
+    padding: "10px 24px",
+    height: "88%",
   },
-  btnStyle:{
-    padding:'5px',
+  btnStyle: {
+    display: "flex",
+    padding: "15px 20px",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "8px",
+    flex: "1 0 0",
+    borderRadius: "8px",
+    background: "#004596",
+    color: "#fff",
+    boxShadow: "0px 1px 2px 0px rgba(16, 24, 40, 0.05)",
   },
-  btn:{ 
-    position:"absolute",
-    bottom:"10px",
-    borderRadius:"10px"
+  btn: {
+    position: "absolute",
+    bottom: "10px",
+    borderRadius: "10px",
   },
-  container:{
-    height:"100%"
-  }
+  container: {
+    height: "100%",
+  },
 });
 
 const Textarea = styled(BaseTextareaAutosize)(
@@ -138,22 +143,14 @@ const TaskDrawer = ({ selectedTask, Close }) => {
                 varient={"p"}
                 labelText={"Task completion expected date"}
               />
-              <Textarea
-                value={date[0]}
-                style={{ resize: "none" }}
-                readOnly
-              />
+              <Textarea value={date[0]} style={{ resize: "none" }} readOnly />
             </Box>
             <Box className={classes.InputBox}>
               <InputLabelText
                 varient={"p"}
                 labelText={"Task completion expected time (in hours)"}
               />
-              <Textarea
-                value={date[1]}
-                style={{ resize: "none" }}
-                readOnly
-              />
+              <Textarea value={date[1]} style={{ resize: "none" }} readOnly />
             </Box>
             <Box className={classes.InputBox}>
               <InputLabelText
@@ -194,8 +191,8 @@ const TaskDrawer = ({ selectedTask, Close }) => {
             </Box>
           </Box>
           <ButtonComp
-          logic={Close}
-            variant={"contained"}
+            logic={Close}
+            // variant={"contained"}
             btntext={"Done"}
             buttonStyle={classes.btn}
             btnTextStyle={classes.btnStyle}

@@ -19,7 +19,9 @@ import SupportingText from "Components/Common/SupportingText";
 import TaskDrawer from "Components/Drawer/TaskDrawer";
 import { makeStyles } from "@mui/styles";
 import { createUseStyles } from "react-jss";
+import ModelDrawer from "Components/Drawer/ModuleDrawer";
 import AddTAskDrawer from "Components/Drawer/AddTAskDrawer";
+import AddTask from "Components/Drawer/AddTask";
 
 const useStyle = createUseStyles({
   CustomTextStyle: {
@@ -98,6 +100,8 @@ const useStyle = createUseStyles({
     background: "#fff",
     padding: "20px 24px",
     borderRadius: "8px",
+    boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
+    border: "1px solid #ECECEC",
   },
   borderWidth: {
     margin: "10px -24px",
@@ -133,6 +137,8 @@ const AssignedUsers = () => {
 const CreateNewProject = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
+  const [modelDrawer, setModelDrawer] = useState(false);
+  const [addTaskDrawer, setAddTaskDrawer] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -142,6 +148,20 @@ const CreateNewProject = () => {
   //   // Perform actions when a task is clicked, using the taskId
   //   alert(`Task ${taskId} clicked`);
   // };
+
+  const handelModelClick = () => {
+    setSelectedTask(null);
+    setModelDrawer(true);
+    setAddTaskDrawer(false);
+    setOpenDrawer(true);
+  };
+
+  const handelAddTaskClick = () => {
+    setSelectedTask(null);
+    setModelDrawer(false);
+    setAddTaskDrawer(true);
+    setOpenDrawer(true);
+  };
 
   const handleCloseDrawer = () => {
     setOpenDrawer(false);
@@ -158,6 +178,8 @@ const CreateNewProject = () => {
       moduleETA: "80 Hours",
       onTaskClick: function HandleTaskClick(taskId) {
         setSelectedTask(taskId);
+        setModelDrawer(false);
+        setAddTaskDrawer(false);
         setOpenDrawer(true);
       },
     },
@@ -169,6 +191,8 @@ const CreateNewProject = () => {
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
       onTaskClick: function HandleTaskClick(taskId) {
+        setModelDrawer(false);
+        setAddTaskDrawer(false);
         setSelectedTask(taskId);
         setOpenDrawer(true);
       },
@@ -182,6 +206,8 @@ const CreateNewProject = () => {
       moduleETA: "80 Hours",
       onTaskClick: function HandleTaskClick(taskId) {
         setSelectedTask(taskId);
+        setModelDrawer(false);
+        setAddTaskDrawer(false);
         setOpenDrawer(true);
       },
     },
@@ -193,7 +219,9 @@ const CreateNewProject = () => {
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
       onTaskClick: function HandleTaskClick(taskId) {
+        setModelDrawer(false);
         setSelectedTask(taskId);
+        setAddTaskDrawer(false);
         setOpenDrawer(true);
       },
     },
@@ -205,6 +233,8 @@ const CreateNewProject = () => {
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
       onTaskClick: function HandleTaskClick(taskId) {
+        setModelDrawer(false);
+        setAddTaskDrawer(false);
         setSelectedTask(taskId);
         setOpenDrawer(true);
       },
@@ -217,14 +247,28 @@ const CreateNewProject = () => {
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
       onTaskClick: function HandleTaskClick(taskId) {
+        setModelDrawer(false);
+        setAddTaskDrawer(false);
         setSelectedTask(taskId);
         setOpenDrawer(true);
       },
     },
     {
       id: 7,
-      moduleName: <ButtonComp variant={"outlined"} btntext={"Module"} />,
-      task: <ButtonComp variant={"outlined"} btntext={"Task"} />,
+      moduleName: (
+        <ButtonComp
+          variant={"outlined"}
+          btntext={"Module"}
+          logic={() => handelModelClick()}
+        />
+      ),
+      task: (
+        <ButtonComp
+          variant={"outlined"}
+          btntext={"Task"}
+          logic={() => handelAddTaskClick()}
+        />
+      ),
       expectedDateTime: null,
       assignedTaskTo: null,
       moduleETA: null,
@@ -341,7 +385,16 @@ const CreateNewProject = () => {
               onClose={handleCloseDrawer}
               classes={{ paper: classes.drawerPaper }}
             >
-              { selectedTask && <TaskDrawer selectedTask={selectedTask} Close={handleCloseDrawer}/> }
+              {selectedTask && (
+                <TaskDrawer
+                  selectedTask={selectedTask}
+                  Close={handleCloseDrawer}
+                />
+              )}
+
+              {modelDrawer && <ModelDrawer Close={handleCloseDrawer} />}
+
+              {addTaskDrawer && <AddTask Close={handleCloseDrawer} />}
             </Drawer>
           </Box>
         </Box>

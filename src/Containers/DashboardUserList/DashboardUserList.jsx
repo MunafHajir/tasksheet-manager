@@ -17,6 +17,8 @@ const useStyle = createUseStyles({
     background: "#fff",
     padding: "20px 24px",
     borderRadius: "8px",
+    boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
+    border: "1px solid #ECECEC",
   },
   MainContainer: {
     display: "flex",
