@@ -89,10 +89,10 @@ const useStyle = createUseStyles({
   Link: {
     textDecoration: "none",
   },
-  AllProduct:{
-    display: 'flex',
-    justifyContent: 'center',
-  }
+  AllProduct: {
+    display: "flex",
+    justifyContent: "center",
+  },
 });
 
 const Week = [
