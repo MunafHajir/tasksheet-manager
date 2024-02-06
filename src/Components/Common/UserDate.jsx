@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import { useState } from 'react';
 import { createUseStyles } from 'react-jss';
 
@@ -8,7 +7,7 @@ const myStyle= createUseStyles({
     Card:{
         minWidth: "11vw",
         maxWidth: "14vw",
-        maxHeight: "5vh",
+        minHeight: "5vh",
         maxHeight:"7vh",
         display:"flex",
         justifyContent:"center",
@@ -40,22 +39,36 @@ export default function UserDate() {
     const [displayedDate, setDisplayedDate] = useState(new Date());
     const classes = myStyle()
     
+    const isRightChevron= displayedDate.getDate() < new Date().getDate();
+    const isLeftChevron = displayedDate.getDate() > new Date().getDate() -2;
+
+    
+    const isRightChevronDisabled= displayedDate.getDate() === new Date().getDate();
+    const isLeftChevronDisabled = displayedDate.getDate() === new Date().getDate() -2;
+
+    console.log(new Date().getDate())
+    console.log(displayedDate.getDate())
+
+
     const handleLeftChevronClick = () => {
-        const previousDate = new Date(displayedDate);
-        previousDate.setDate(displayedDate.getDate() - 1);
-        setDisplayedDate(previousDate);
+        
+        if (isLeftChevron ) {
+            const previousDate = new Date(displayedDate);
+            previousDate.setDate(displayedDate.getDate() - 1);
+            setDisplayedDate(previousDate);
+        }
     };
 
-    // const handleRightChevronClick = () => {
-    //     const nextDate = new Date(displayedDate);
-    //     nextDate.setDate(displayedDate.getDate() + 1);
-    //     setDisplayedDate(nextDate);
-    // };
+    const handleRightChevronClick = () => {
+        if (isRightChevron) {            
+            const nextDate = new Date(displayedDate);
+            nextDate.setDate(displayedDate.getDate() + 1);
+            setDisplayedDate(nextDate);
+        }
+    };
     
     
 
-    const isLeftChevronDisabled = displayedDate <= new Date();
-    const isRightChevronDisabled = displayedDate.getDate() >= new Date().getDate() + 2;
 
     return (
         <Card className={classes.Card}>
@@ -69,7 +82,7 @@ export default function UserDate() {
                     fill="none"
                     onClick={handleLeftChevronClick}
                     style={{ cursor: isLeftChevronDisabled ? 'not-allowed' : 'pointer', opacity: isLeftChevronDisabled ? 0.5 : 1 }}
-                >
+                    >
                     <path
                         d="M12.5742 16.6004L7.14088 11.1671C6.49922 10.5254 6.49922 9.47539 7.14088 8.83372L12.5742 3.40039"
                         stroke="#0463D1"
@@ -95,9 +108,10 @@ export default function UserDate() {
                     height="15"
                     viewBox="0 0 20 20"
                     fill="none"
-                    // onClick={handleRightChevronClick}
+                    onClick={handleRightChevronClick}
                     style={{ cursor: isRightChevronDisabled ? 'not-allowed' : 'pointer', opacity: isRightChevronDisabled ? 0.5 : 1 }}
-                >
+                    
+                    >
                     <path
                         d="M7.42578 16.6004L12.8591 11.1671C13.5008 10.5254 13.5008 9.47539 12.8591 8.83372L7.42578 3.40039"
                         stroke="#0463D1"

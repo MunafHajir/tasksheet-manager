@@ -17,7 +17,7 @@ import {
   Box,
 } from "@mui/material";
 import { createUseStyles } from "react-jss";
-// import { Email } from '@mui/icons-material';
+
 
 const theme = createTheme({
   typography: {
@@ -164,10 +164,6 @@ const Auth = () => {
                   variant="contained"
                   color="primary"
                   className={classes.button}
-                  // sx={{
-                  //   marginTop: '100px',
-                  //   padding: '8px'
-                  // }}
                 >
                   send OTP
                 </Button>

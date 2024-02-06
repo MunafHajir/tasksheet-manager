@@ -8,7 +8,7 @@ import CurrentUserTable from "./UserTable/CurrentUserTable";
 const useStyles = createUseStyles({
   layoutcontainer: {
     background: "#F7FBFF",
-    height: "100vh",
+    minHeight: "100vh",
     fontFamily: "Plus Jakarta Sans",
   },
 });
