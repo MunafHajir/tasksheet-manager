@@ -1,24 +1,26 @@
 import {
   Box,
-  FormControl,
-  FormHelperText,
   MenuItem,
-  Select,
   Typography,
 } from "@mui/material";
 import ProgressGraph from "Components/Graph/ProgressGraph";
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { MonthList, WeekList, weekList } from "./PaticularGraphMonthAndWeekDatalist";
+import {
+  MonthList,
+  WeekList,
+  weekList,
+} from "./PaticularGraphMonthAndWeekDatalist";
 import DropDown from "Components/Common/DropDownWeekAndMonth";
+import Text from "Components/Common/Text";
 const useStyles = createUseStyles({
   graphBoxSection: {
     width: "85%",
-    margin:"0rem 1rem",
-    padding:".5rem",    
-    marginBottom:"1rem",
-    boxShadow:"0px 0px 5px -2px  gray ",
-    borderRadius:".2rem"
+    margin: "0rem 1rem",
+    padding: ".5rem",
+    marginBottom: "1rem",
+    boxShadow: "0px 0px 5px -2px  gray ",
+    borderRadius: ".2rem",
   },
   graphTopInformationSection: {
     display: "flex",
@@ -27,7 +29,7 @@ const useStyles = createUseStyles({
     padding: "0rem 2rem",
   },
   TextSection: {
-    marginLeft:".5%",
+    marginLeft: ".5%",
   },
   DifferentWorkSection: {
     display: "flex",
@@ -42,7 +44,7 @@ const useStyles = createUseStyles({
   secondWork: {
     marginRight: "1rem",
   },
-  firstColor:{
+  firstColor: {
     width: ".8rem",
     height: ".8rem",
     borderRadius: "50%",
@@ -58,36 +60,48 @@ const useStyles = createUseStyles({
     display: "inline-block",
     marginRight: "0.5rem",
   },
-  sequence:{
-  fontSize:"1rem",
-  fontWeight:"600",
+  sequence: {
+    fontSize: "1rem",
+    fontWeight: "600",
   },
 });
-export default function PaticularUserProgressGraph({sequence ,firstWorkText ,secondWorkText ,firstWorkNumber , secondWorkNumber ,sequenceDisplay ,sequenceDropDown}) {
+export default function PaticularUserProgressGraph({
+  sequence,
+  firstWorkText,
+  secondWorkText,
+  firstWorkNumber,
+  secondWorkNumber,
+  sequenceDisplay,
+  sequenceDropDown,
+}) {
   const classes = useStyles();
   const [week, setWeek] = React.useState("");
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setWeek(event.target.value);
   };
-  const weekListData =WeekList;
-const Day =weekListData.map((day ,index)=>{
-    return(
-        <MenuItem value={index+1} key={index}>{day.Day}</MenuItem>
-        )
-    })
-    
-    const monthListData =MonthList;
-    const Month = monthListData.map((item,index)=>{
-        return(       
-            <MenuItem value={index+1} key={index}>{item}</MenuItem>  
-    )
-})
+  const weekListData = WeekList;
+  const Day = weekListData.map((day, index) => {
+    return (
+      <MenuItem value={index + 1} key={index}>
+        {day.Day}
+      </MenuItem>
+    );
+  });
+
+  const monthListData = MonthList;
+  const Month = monthListData.map((item, index) => {
+    return (
+      <MenuItem value={index + 1} key={index}>
+        {item}
+      </MenuItem>
+    );
+  });
   return (
     <Box className={classes.graphBoxSection}>
       <Box className={classes.graphTopInformationSection}>
         <Box className={classes.TextSection}>
-          <Typography variant="body1" className={classes.sequence}>{sequence} progress</Typography>
+          <Text classes={classes.sequence} title={`${sequence} progress`} />
           <Box className={classes.DifferentWorkSection}>
             <Box className={classes.firstWork}>
               <Typography variant="body2">
@@ -103,7 +117,11 @@ const Day =weekListData.map((day ,index)=>{
             </Box>
           </Box>
         </Box>
-        <DropDown sequence={sequence} sequenceDisplay={sequenceDisplay} sequenceDropDown={sequenceDropDown}/>
+        <DropDown
+          sequence={sequence}
+          sequenceDisplay={sequenceDisplay}
+          sequenceDropDown={sequenceDropDown}
+        />
         {/* <Box>
           <FormControl sx={{ m: 1, minWidth: 120 }}>
             <Select

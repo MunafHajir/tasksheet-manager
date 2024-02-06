@@ -14,6 +14,13 @@ const useStyle = createUseStyles({
     borderRadius: "8px",
     cursor: "pointer",
     border: "1px solid #ECECEC",
+    transition: "transform 5s ease-in-out ",
+    "&:hover": {
+      borderRadius: "8px",
+      border: "1px solid #0463D1",
+      background: "#fff",
+      boxShadow: "0px 0px 20px 0px rgba(200, 200, 200, 0.20)",
+    },
   },
   Text: {
     display: "flex",
@@ -26,7 +33,7 @@ const Card = ({ variantT, variantU, title, users, classesT, classesU , logic}) =
   const classes = useStyle();
   return (
     <>
-      <Box className={classes.container} onClick={() => logic(title)} >
+      <Box className={`${classes.container} card`} onClick={() => logic(title)} >
         <box className={classes.Text}>
           <Typography variant={variantT} className={`${classesT}`}>
             {title}

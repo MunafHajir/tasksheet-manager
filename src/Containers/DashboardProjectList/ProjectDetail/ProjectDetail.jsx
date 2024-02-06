@@ -139,13 +139,13 @@ const useStyle = createUseStyles({
   },
   flex: {
     display: "flex",
-    justifyContent: 'center',
+    justifyContent: "center",
     alignItems: "center",
     gap: "20px",
   },
-  selectHeight:{
-    height:"40px"
-  }
+  selectHeight: {
+    height: "40px",
+  },
 });
 
 const ProjectDetail = () => {
@@ -278,7 +278,8 @@ const ProjectDetail = () => {
             <Border borderWidth={classes.borderWidth} />
           </Box>
         </Box>
-        <Box className={classes.flex} >
+        <Box className={classes.flex}>
+
           <AddUser
             UserContainer={classes.UserContainer}
             title={<Text title={"Developers"} classes={classes.Text} />}
@@ -290,6 +291,7 @@ const ProjectDetail = () => {
             }
             AddUserData={UserData}
           />
+
           <AddUser
             UserContainer={classes.UserContainer}
             title={<Text title={"Designer"} classes={classes.Text} />}
@@ -301,6 +303,7 @@ const ProjectDetail = () => {
             }
             AddUserData={UserData}
           />
+          
           <AddUser
             UserContainer={classes.UserContainer}
             title={<Text title={"Quality Assurance"} classes={classes.Text} />}
