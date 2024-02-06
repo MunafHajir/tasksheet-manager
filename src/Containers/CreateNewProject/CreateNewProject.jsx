@@ -152,8 +152,8 @@ const CreateNewProject = () => {
   const handelModelClick = () => {
     setSelectedTask(null);
     setModelDrawer(true);
-    setAddTaskDrawer(false);
     setOpenDrawer(true);
+    setAddTaskDrawer(false);
   };
 
   const handelAddTaskClick = () => {
