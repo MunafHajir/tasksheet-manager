@@ -19,20 +19,20 @@ const CustomizedTextField = styled(TextField)(({ theme }) => ({
   ".css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input": {
     padding: "16px",
   },
-  '.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root':{
+  ".css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root": {
     borderRadius: "8px",
-  }
+  },
 }));
 
-const Input = ({ type, placeholder, logic  }) => {
+const Input = ({ type, placeholder, logic, InputStyle }) => {
   return (
     <CustomizedTextField
+      className={`${InputStyle}`}
       type={type}
       placeholder={placeholder}
-      onFocus={(e) => (e.target.type = type)}
-      onBlur={(e) => (e.target.type = "text")}
+      onFocus={e => (e.target.type = type)}
+      onBlur={e => (e.target.type = "text")}
       onChange={logic}
-      
     />
   );
 };

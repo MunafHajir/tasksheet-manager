@@ -18,11 +18,11 @@ const useStyles = createUseStyles({
         alignItems: 'center',
     }
 })
-const NewProjectUserSelection = ({logic,title ,children}) => {
+const NewProjectUserSelection = ({logic,title ,children, paddingTB , paddingLR}) => {
     const classes = useStyles();
   return (
     <>
-      <Box className={classes.container} onClick={logic}>
+      <Box sx={{padding: `${paddingTB} ${paddingLR}`}} className={classes.container} onClick={logic}>
         <Box>
             <Typography variant="p" color="initial">{title}</Typography>
         </Box>

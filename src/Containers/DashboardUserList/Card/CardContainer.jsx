@@ -1,3 +1,4 @@
+import { useState,useEffect } from "react";
 import Card from "./Card";
 import { createUseStyles } from "react-jss";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +24,7 @@ const useStyle = createUseStyles({
   },
 });
 
-const CardContainer = () => {
+const CardContainer = ({ currentTab }) => {
   const classes = useStyle();
   const navigate = useNavigate();
 
@@ -37,19 +38,34 @@ const CardContainer = () => {
     { title: "jeetu Gupta", role: "Developer" },
     { title: "jeetu Gupta", role: "Developer" },
     { title: "jeetu Gupta", role: "Developer" },
-    { title: "jeetu Gupta", role: "Developer" },
+    { title: "jeetu Gupta", role: "QA" },
+    { title: "jeetu Gupta", role: "Designer" },
+    
   ];
 
-  
+  const [filteredList, setFilteredList] = useState(cardsData);
+
+  useEffect(() => {
+    filterData(currentTab);
+  }, [currentTab]);
 
   const handleProjectDetail = (value) => {
     navigate(`${value}`);
   };
 
+  const filterData = (role) => {
+    if (role === "All") {
+      setFilteredList(cardsData);
+    } else {
+      const filteredData = cardsData.filter((data) => data.role === role);
+      setFilteredList(filteredData);
+    }
+  };
+
   return (
     <>
       <div className={classes.flex}>
-        {cardsData.map((card, cardIndex) => (
+        {filteredList.map((card, cardIndex) => (
           <Card
             key={cardIndex}
             logic={handleProjectDetail}
@@ -57,7 +73,7 @@ const CardContainer = () => {
             variantT={"p"}
             title={card.title}
             variantU={"p"}
-            classesU={classes.roleText}
+            classesU={classes.usersText}
             users={card.role}
           />
         ))}

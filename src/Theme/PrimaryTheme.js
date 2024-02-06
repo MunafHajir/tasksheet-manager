@@ -1,9 +1,9 @@
-import React from 'react'
+import { createTheme } from "@mui/material/styles";
 
-const PrimaryTheme = () => {
-  return (
-    <div>PrimaryTheme</div>
-  )
-}
+const Theme = createTheme({
+  typography: {
+      fontFamily: "Plus Jakarta Sans",
+    },
+});
 
-export default PrimaryTheme
+export default Theme;

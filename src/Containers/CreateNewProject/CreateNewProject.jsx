@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import { createUseStyles } from "react-jss";
-import { Box, Checkbox, CssBaseline, FormControlLabel } from "@mui/material";
+import {
+  Box,
+  Checkbox,
+  CssBaseline,
+  FormControlLabel,
+  Drawer,
+} from "@mui/material";
 import Text from "Components/Common/Text";
 import InputLabelText from "Components/Common/InputLabelText";
 import Input from "Components/Common/Input";
@@ -11,6 +16,12 @@ import ProjectUserSelection from "./ProjectUserSelection";
 import { CreateNewProjectModuleETATable } from "Components/Table/CreateNewProjectTable";
 import ButtonComp from "Components/Common/Button";
 import SupportingText from "Components/Common/SupportingText";
+import TaskDrawer from "Components/Drawer/TaskDrawer";
+import { makeStyles } from "@mui/styles";
+import { createUseStyles } from "react-jss";
+import ModelDrawer from "Components/Drawer/ModuleDrawer";
+import AddTAskDrawer from "Components/Drawer/AddTAskDrawer";
+import AddTask from "Components/Drawer/AddTask";
 
 const useStyle = createUseStyles({
   CustomTextStyle: {
@@ -89,17 +100,23 @@ const useStyle = createUseStyles({
     background: "#fff",
     padding: "20px 24px",
     borderRadius: "8px",
+    boxShadow: "0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
+    border: "1px solid #ECECEC",
   },
   borderWidth: {
     margin: "10px -24px",
   },
-  labelMargin:{
-    margin:"36px 0px"
-  }
+  labelMargin: {
+    margin: "36px 0px",
+  },
+  drawerPaper: {
+    width: "30%",
+  },
 });
 
 const AssignedUsers = () => {
   const classes = useStyle();
+
   let users = ["Rahul Sharma", "Jay Tiwari", "+4"];
   return (
     <>
@@ -118,10 +135,38 @@ const AssignedUsers = () => {
 };
 
 const CreateNewProject = () => {
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
+  const [modelDrawer, setModelDrawer] = useState(false);
+  const [addTaskDrawer, setAddTaskDrawer] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const classes = useStyle();
+
+  // const HandleTaskClick = (taskId) => {
+  //   // Perform actions when a task is clicked, using the taskId
+  //   alert(`Task ${taskId} clicked`);
+  // };
+
+  const handelModelClick = () => {
+    setSelectedTask(null);
+    setModelDrawer(true);
+    setOpenDrawer(true);
+    setAddTaskDrawer(false);
+  };
+
+  const handelAddTaskClick = () => {
+    setSelectedTask(null);
+    setModelDrawer(false);
+    setAddTaskDrawer(true);
+    setOpenDrawer(true);
+  };
+
+  const handleCloseDrawer = () => {
+    setOpenDrawer(false);
+    // setSelectedTask(' ');
+  };
 
   const tableData = [
     {
@@ -131,6 +176,12 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setSelectedTask(taskId);
+        setModelDrawer(false);
+        setAddTaskDrawer(false);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 2,
@@ -139,6 +190,12 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setModelDrawer(false);
+        setAddTaskDrawer(false);
+        setSelectedTask(taskId);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 3,
@@ -147,6 +204,12 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setSelectedTask(taskId);
+        setModelDrawer(false);
+        setAddTaskDrawer(false);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 4,
@@ -155,6 +218,12 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setModelDrawer(false);
+        setSelectedTask(taskId);
+        setAddTaskDrawer(false);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 5,
@@ -163,6 +232,12 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setModelDrawer(false);
+        setAddTaskDrawer(false);
+        setSelectedTask(taskId);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 6,
@@ -171,11 +246,29 @@ const CreateNewProject = () => {
       expectedDateTime: "Sept 23, 2023 - 4 hrs",
       assignedTaskTo: AssignedUsers(),
       moduleETA: "80 Hours",
+      onTaskClick: function HandleTaskClick(taskId) {
+        setModelDrawer(false);
+        setAddTaskDrawer(false);
+        setSelectedTask(taskId);
+        setOpenDrawer(true);
+      },
     },
     {
       id: 7,
-      moduleName: <ButtonComp variant={"outlined"} btntext={"Module"} />,
-      task: <ButtonComp variant={"outlined"} btntext={"Task"} />,
+      moduleName: (
+        <ButtonComp
+          variant={"outlined"}
+          btntext={"Module"}
+          logic={() => handelModelClick()}
+        />
+      ),
+      task: (
+        <ButtonComp
+          variant={"outlined"}
+          btntext={"Task"}
+          logic={() => handelAddTaskClick()}
+        />
+      ),
       expectedDateTime: null,
       assignedTaskTo: null,
       moduleETA: null,
@@ -183,12 +276,12 @@ const CreateNewProject = () => {
   ];
 
   const columns = [
-    { id: "moduleName", label: "Module Name", rowWidth: "200px" },
-    { id: "task", label: "Task", rowWidth: "440px" },
+    { id: "moduleName", label: "Module Name", rowWidth: "180px" },
+    { id: "task", label: "Task", rowWidth: "400px" },
     {
       id: "expectedDateTime",
       label: "Expected Date and Time",
-      rowWidth: "200px",
+      rowWidth: "225px",
     },
     { id: "assignedTaskTo", label: "Assigned Task To", rowWidth: "250px" },
     { id: "moduleETA", label: "Module ETA", rowWidth: "130px" },
@@ -286,6 +379,23 @@ const CreateNewProject = () => {
               data={tableData}
               customizableColumns={columns}
             />
+            <Drawer
+              anchor="right"
+              open={openDrawer}
+              onClose={handleCloseDrawer}
+              classes={{ paper: classes.drawerPaper }}
+            >
+              {selectedTask && (
+                <TaskDrawer
+                  selectedTask={selectedTask}
+                  Close={handleCloseDrawer}
+                />
+              )}
+
+              {modelDrawer && <ModelDrawer Close={handleCloseDrawer} />}
+
+              {addTaskDrawer && <AddTask Close={handleCloseDrawer} />}
+            </Drawer>
           </Box>
         </Box>
       </CssBaseline>
